@@ -1,85 +1,33 @@
 import { Link } from 'react-router-dom';
-import { ArrowRight, ChevronDown, Sun, Building, Zap, BatteryCharging, ShieldCheck, Activity, Check, Star, Award, Users, Cpu } from 'lucide-react';
+import { ArrowRight, ChevronDown, ShieldCheck, Check, Star, Award, MapPin } from 'lucide-react';
 import { useState } from 'react';
 import './Home.css';
 
 const Home = () => {
-  const [activeIndustry, setActiveIndustry] = useState(0);
-
-  const industries = [
-    {
-      name: 'Commercial & Industrial',
-      icon: <Building size={24} />,
-      desc: 'Full-scope electrical design for commercial developments, industrial facilities, and mixed-use properties across the Western Cape.',
-      features: ['MV/LV reticulation design', 'Power factor correction', 'Building Management Systems'],
-      image: '/images/switchgear.png'
-    },
-    {
-      name: 'Renewable Energy',
-      icon: <Sun size={24} />,
-      desc: 'Solar PV feasibility, SSEG applications, and grid-tie system design for businesses transitioning to clean energy.',
-      features: ['Solar PV system design', 'Grid connection applications', 'Energy yield analysis'],
-      image: '/images/solar.png'
-    },
-    {
-      name: 'Critical Infrastructure',
-      icon: <Zap size={24} />,
-      desc: 'Specialized power system design for data centres, telecommunications, and mission-critical facilities.',
-      features: ['UPS & generator sizing', 'Redundancy design (N+1)', 'Commissioning management'],
-      image: '/images/ups.png'
-    },
-    {
-      name: 'Energy Storage',
-      icon: <BatteryCharging size={24} />,
-      desc: 'BESS consulting from feasibility through commissioning, helping clients integrate battery storage for grid resilience.',
-      features: ['Technology selection', 'Performance modelling', 'Lifecycle cost analysis'],
-      image: '/images/bess.png'
-    },
-    {
-      name: 'Compliance & Safety',
-      icon: <ShieldCheck size={24} />,
-      desc: 'Rigorous electrical compliance inspections and auditing services aligned with SANS 10142 and OHS Act requirements.',
-      features: ['Certificates of Compliance', 'OHS Act assessments', 'Hazardous area classification'],
-      image: '/images/compliance.png'
-    }
-  ];
-
   const services = [
     {
       num: '01',
-      title: 'Renewable Energy & Solar PV',
-      features: ['Solar PV feasibility studies', 'SSEG municipal applications', 'Grid-tie system design', 'Performance monitoring'],
+      title: 'Power Systems Studies and Renewable Energy Grid Integration',
+      features: ['SSEG compliance', 'Arc flash analysis', 'Grid code compliance', 'Network impact assessments for solar PV and BESS', 'Power Quality Assessments', 'Power factor correction'],
       image: '/images/solar.png'
     },
     {
       num: '02',
-      title: 'Building Services Engineering',
-      features: ['MV & LV distribution design', 'Lighting design (Relux/Dialux)', 'Fire detection systems', 'BMS integration'],
+      title: 'Industrial Automation and SCADA Consulting',
+      features: ['SCADA architecture review', 'PLC and HMI functional design', 'Control system audits', 'IT/OT network assessments', 'OT cybersecurity gap analysis'],
       image: '/images/switchgear.png'
     },
     {
       num: '03',
-      title: 'Standby Power & Critical Systems',
-      features: ['Generator & UPS sizing', 'ATS synchronisation design', 'Telecoms site power', 'Data centre infrastructure'],
+      title: 'Critical Power and Data Centre Electrical Infrastructure',
+      features: ['UPS system design', 'Generator sizing', 'ATS and synchronisation systems', 'Data centre MV/LV distribution', 'Tier classification consulting', 'PUE optimisation'],
       image: '/images/ups.png'
     },
     {
       num: '04',
-      title: 'BESS Consulting',
-      features: ['Technology selection advisory', 'Electrical integration design', 'Grid interconnection studies', 'Lifecycle cost modelling'],
-      image: '/images/bess.png'
-    },
-    {
-      num: '05',
-      title: 'Compliance & Technical Auditing',
-      features: ['SANS 10142 inspections', 'OHS Act Section 44 audits', 'Electrical CoC issuance', 'Condition assessments'],
+      title: 'Energy Efficiency Auditing and Demand-Side Management',
+      features: ['Energy audits (Level 1 to Level 3)', 'Power factor correction', 'Tariff optimisation', 'SANS 204 compliance', 'M&V baselining', 'Carbon tax support'],
       image: '/images/compliance.png'
-    },
-    {
-      num: '06',
-      title: 'MV/LV Infrastructure Design',
-      features: ['Substation design', 'Protection coordination', 'Earthing & lightning protection', 'Municipal applications'],
-      image: '/images/switchgear.png'
     }
   ];
 
@@ -107,19 +55,19 @@ const Home = () => {
           <div className="hero-left">
             <div className="hero-tag">
               <span className="tag-icon"></span>
-              <span>Trusted Engineering Partner</span>
+              <span>Professional Engineering Practice</span>
             </div>
-            <h1 className="hero-title">
-              From concept <span className="accent-text">to commissioning</span> with confidence
+            <h1 className="hero-title" style={{ color: '#fff', maxWidth: '800px' }}>
+              <span className="accent-text">Independent</span> Electrical Engineering Consulting
             </h1>
           </div>
           <div className="hero-right">
             <p className="hero-since">// ESTABLISHED - 2026 //</p>
             <p className="hero-desc">
-              From feasibility to final commissioning, we deliver precision-engineered electrical solutions—scalable, compliant, and tailored to your operational requirements.
+              Specialist advisory, design, and analysis services for industrial, commercial, and municipal clients across South Africa.
             </p>
             <Link to="/services" className="btn-hero">
-              <span>Explore Our Services</span>
+              <span>View Our Services</span>
               <span className="btn-hero-arrow"><ArrowRight size={18} /></span>
             </Link>
           </div>
@@ -138,7 +86,7 @@ const Home = () => {
         <div className="container quote-grid">
           <div className="quote-portrait-col">
             <div className="quote-portrait">
-              <img src="/images/engineer.png" alt="Bramwill Bruinders - Principal Engineer" />
+              <img src="/images/switchgear.png" alt="Electrical Switchgear" />
             </div>
             <div className="quote-portrait-accent"></div>
           </div>
@@ -149,8 +97,8 @@ const Home = () => {
             </blockquote>
             <div className="quote-author-row">
               <div className="quote-author-info">
-                <p className="quote-author-name">Bramwill Bruinders</p>
-                <p className="quote-author-title">Principal Engineer &amp; Founder</p>
+                <p className="quote-author-name">Principal Engineer</p>
+                <p className="quote-author-title">Founder</p>
               </div>
               <div className="quote-rating">
                 {[...Array(5)].map((_, i) => <Star key={i} size={16} fill="#E55225" color="#E55225" />)}
@@ -172,10 +120,10 @@ const Home = () => {
           <div className="about-text-col">
             <p className="section-tag">Who We Are</p>
             <h2 className="section-heading">
-              Driven by technology, backed by experience, focused on <span className="accent-text">engineering excellence</span>
+              Engineering Expertise <span className="accent-text">You Can Trust</span>
             </h2>
             <p className="about-body">
-              Bynergex Consulting is a specialist electrical engineering consultancy founded on 26+ years of hands-on industry experience. From telecommunications critical power systems to renewable energy integration, we deliver the technical rigour of a large firm with the agility of a focused practice.
+              Bynergex Consulting delivers independent electrical engineering advisory, design, and analysis services. With 26 years of professional experience across power systems, industrial automation, SCADA platforms, and critical infrastructure, we provide the technical rigour that complex projects demand. We are a consulting-only practice. We do not install. Our recommendations serve one interest: the client.
             </p>
             <div className="about-actions">
               <Link to="/about" className="btn-hero">
@@ -187,33 +135,7 @@ const Home = () => {
         </div>
       </section>
 
-      {/* ═══════════════════════════════════════════════════════
-          SECTION 4: IMPACT STATS
-      ═══════════════════════════════════════════════════════ */}
-      <section className="stats-section" id="stats">
-        <div className="container stats-grid">
-          <div className="stat-card">
-            <div className="stat-icon"><Award size={28} /></div>
-            <h3 className="stat-number">26+</h3>
-            <p className="stat-label">Years of Experience</p>
-          </div>
-          <div className="stat-card">
-            <div className="stat-icon"><Users size={28} /></div>
-            <h3 className="stat-number">100+</h3>
-            <p className="stat-label">Projects Delivered</p>
-          </div>
-          <div className="stat-card">
-            <div className="stat-icon"><Star size={28} /></div>
-            <h3 className="stat-number">ECSA</h3>
-            <p className="stat-label">Registered Pr. Eng</p>
-          </div>
-          <div className="stat-card">
-            <div className="stat-icon"><Cpu size={28} /></div>
-            <h3 className="stat-number">6</h3>
-            <p className="stat-label">Core Service Lines</p>
-          </div>
-        </div>
-      </section>
+      {/* STATS SECTION REMOVED */}
 
       {/* ═══════════════════════════════════════════════════════
           SECTION 5: SERVICE CAPABILITIES (Horizontal Cards)
@@ -222,7 +144,7 @@ const Home = () => {
         <div className="container">
           <div className="capabilities-header">
             <h2 className="section-heading">
-              Scalable <span className="accent-text">capabilities</span> for every challenge
+              Our <span className="accent-text">Services</span>
             </h2>
             <Link to="/services" className="btn-hero">
               <span>Explore All Capabilities</span>
@@ -256,76 +178,56 @@ const Home = () => {
       </section>
 
       {/* ═══════════════════════════════════════════════════════
-          SECTION 6: DARK SHOWCASE / PRODUCTS
+          SECTION 6: WHY BYNERGEX
       ═══════════════════════════════════════════════════════ */}
-      <section className="showcase-section dark-section" id="showcase">
+      <section className="showcase-section dark-section" id="why-bynergex">
         <div className="container">
           <div className="showcase-top">
-            <h2 className="showcase-counter">50,000+</h2>
-            <p className="showcase-subtitle">Critical installations designed, audited, and commissioned across South Africa.</p>
+            <h2 className="section-heading text-center-heading" style={{color: '#fff'}}>Why Bynergex</h2>
+            <p className="showcase-subtitle">Independent expertise mapped to your critical project requirements.</p>
           </div>
           <div className="showcase-grid">
-            <div className="showcase-card">
-              <h4>MV/LV Substation Design</h4>
-              <img src="/images/switchgear.png" alt="MV/LV Substation" />
-              <p>Protection-coordinated substation designs for industrial and commercial applications.</p>
+            <div className="showcase-card no-image-card">
+              <Award size={40} color="var(--clr-primary)" className="card-icon" />
+              <h4>26 Years of Experience</h4>
+              <p>Deep expertise in power systems, industrial automation, SCADA, and critical infrastructure across municipal, telecoms, and industrial sectors.</p>
             </div>
-            <div className="showcase-card">
-              <h4>Solar PV Integration</h4>
-              <img src="/images/solar.png" alt="Solar PV systems" />
-              <p>Grid-tie and off-grid solar PV system design with SSEG compliance.</p>
+            <div className="showcase-card no-image-card">
+              <ShieldCheck size={40} color="var(--clr-primary)" className="card-icon" />
+              <h4>ECSA Registered Pr. Tech Eng</h4>
+              <p>Professional sign-off authority meeting ECSA Identification of Engineering Work requirements.</p>
             </div>
-            <div className="showcase-card">
-              <h4>UPS & Critical Power</h4>
-              <img src="/images/ups.png" alt="UPS room" />
-              <p>Redundant power architectures for data centres and telecom facilities.</p>
+            <div className="showcase-card no-image-card">
+              <Star size={40} color="var(--clr-primary)" className="card-icon" />
+              <h4>Independent and Impartial</h4>
+              <p>Consulting-only. No installation, no product supply, no contractor relationships. Our advice is unconflicted.</p>
             </div>
-            <div className="showcase-card">
-              <h4>BESS Solutions</h4>
-              <img src="/images/bess.png" alt="Battery energy storage" />
-              <p>Battery energy storage integration for grid resilience and peak shaving.</p>
+            <div className="showcase-card no-image-card">
+              <MapPin size={40} color="var(--clr-primary)" className="card-icon" />
+              <h4>Western Cape Based, Nationally Available</h4>
+              <p>Headquartered in Cape Town. Delivering projects across South Africa.</p>
             </div>
           </div>
         </div>
       </section>
 
       {/* ═══════════════════════════════════════════════════════
-          SECTION 7: INDUSTRIES WE SERVE (Tab Selector)
+          SECTION 7: LEAD MAGNET
       ═══════════════════════════════════════════════════════ */}
-      <section className="industries-section section" id="industries">
-        <div className="container">
-          <p className="section-tag text-center-tag">Industries</p>
-          <h2 className="section-heading text-center-heading">
-            Engineering solutions for <span className="accent-text">every industry</span>
-          </h2>
-
-          <div className="industries-layout">
-            <div className="industries-tabs">
-              {industries.map((ind, idx) => (
-                <button
-                  key={idx}
-                  className={`industry-tab ${activeIndustry === idx ? 'active' : ''}`}
-                  onClick={() => setActiveIndustry(idx)}
-                >
-                  {ind.name}
-                </button>
-              ))}
-            </div>
-            <div className="industry-detail">
-              <div className="industry-image-wrapper">
-                <img src={industries[activeIndustry].image} alt={industries[activeIndustry].name} />
-              </div>
-              <div className="industry-info">
-                <div className="industry-icon-badge">{industries[activeIndustry].icon}</div>
-                <h3>{industries[activeIndustry].name}</h3>
-                <p>{industries[activeIndustry].desc}</p>
-                <ul className="industry-features">
-                  {industries[activeIndustry].features.map((f, i) => (
-                    <li key={i}><Check size={16} className="check-icon" /> {f}</li>
-                  ))}
-                </ul>
-              </div>
-            </div>
+      <section className="resource-banner-section section" id="lead-magnet" style={{ backgroundColor: 'var(--clr-bg-alt)' }}>
+        <div className="container resource-grid" style={{ display: 'flex', gap: '3rem', alignItems: 'center', flexWrap: 'wrap' }}>
+          <div className="resource-text" style={{ flex: '1 1 500px' }}>
+            <p className="section-tag">Free Resource</p>
+            <h2 className="section-heading">Planning a Solar PV or Battery Storage Investment?</h2>
+            <p style={{ fontSize: '1.125rem', marginBottom: '2rem', color: 'var(--clr-text-light)' }}>
+              Download our free guide: 10 technical questions to answer before you invest. Independent advice from an ECSA-registered Professional Engineering Technologist.
+            </p>
+            <button className="btn-primary" style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem', padding: '1rem 2rem', fontSize: '1.125rem', fontWeight: 'bold' }}>
+              Download Free Guide <ArrowRight size={20} />
+            </button>
+          </div>
+          <div className="resource-image" style={{ flex: '1 1 400px', borderRadius: '1rem', overflow: 'hidden' }}>
+            <img src="/images/bess.png" alt="Battery Storage Guide" style={{ width: '100%', height: 'auto', display: 'block' }} />
           </div>
         </div>
       </section>
@@ -340,19 +242,17 @@ const Home = () => {
         </div>
         <div className="container cta-banner-content">
           <div className="cta-banner-left">
-            <h2>Ready to start your next project?</h2>
-            <ul className="cta-checklist">
-              <li><Check size={16} className="check-icon-cta" /> ECSA-registered professional engineer</li>
-              <li><Check size={16} className="check-icon-cta" /> 26+ years of hands-on experience</li>
-              <li><Check size={16} className="check-icon-cta" /> Client-centric approach</li>
-            </ul>
+            <h2>Let us discuss your project.</h2>
+            <p className="cta-desc" style={{ color: '#fff', fontSize: '1.25rem', marginBottom: '2rem', maxWidth: '600px', lineHeight: '1.6' }}>
+              We welcome enquiries from industrial, commercial, and municipal clients. Whether you need a power systems study, a SCADA audit, a critical power review, or an energy efficiency assessment, the conversation starts here.
+            </p>
             <Link to="/contact" className="btn-cta-primary">
-              <span>Schedule a Consultation</span>
+              <span>Get in Touch</span>
               <span className="btn-hero-arrow"><ArrowRight size={18} /></span>
             </Link>
-            <div className="cta-social-proof">
+            <div className="cta-social-proof" style={{ marginTop: '3rem' }}>
               <div className="cta-avatars">
-                <img src="/images/engineer.png" alt="Client" className="cta-avatar" />
+                <img src="/images/switchgear.png" alt="Electrical Infrastructure" className="cta-avatar" />
               </div>
               <div className="cta-stars">
                 <div className="stars-row">
