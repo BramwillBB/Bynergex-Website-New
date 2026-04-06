@@ -1,6 +1,33 @@
 .services-page {
   padding-top: var(--space-8);
   background-color: var(--clr-bg-light);
+  position: relative;
+}
+
+/* --- Global Layout Elements --- */
+.layout-grid-lines {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  max-width: 1400px;
+  height: 100%;
+  padding: 0 40px;
+  display: flex;
+  justify-content: space-between;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.layout-grid-line {
+  width: 1px;
+  height: 100%;
+  background-image: linear-gradient(to bottom, #333 30%, rgba(255,255,255,0) 0%);
+  background-position: left;
+  background-size: 1px 10px;
+  background-repeat: repeat-y;
+  opacity: 0.25; /* Visible against grey background */
 }
 
 .service-inner-section {
@@ -9,7 +36,7 @@
 
 .hero-simple-wrap {
   text-align: center;
-  margin-bottom: var(--space-14);
+  margin-bottom: 3rem;
 }
 
 .hero-inner-title {
@@ -62,7 +89,7 @@
   position: relative;
   border-radius: var(--radius-md);
   overflow: hidden;
-  margin-bottom: var(--space-5);
+  margin-bottom: 2.5rem;
   background-color: #fff;
   transition: all var(--transition-normal);
   aspect-ratio: 16 / 10;

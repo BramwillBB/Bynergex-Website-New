@@ -1,0 +1,239 @@
+.lead-magnet-banner {
+  background-color: #F4F7FA;
+  padding: 64px 0;
+  border-top: 1px solid #E2E8F0;
+  border-bottom: 1px solid #E2E8F0;
+}
+
+.banner-grid {
+  display: grid;
+  grid-template-columns: 3fr 4.5fr 2.5fr; /* approx 30% 45% 25% */
+  gap: var(--space-6);
+  align-items: center;
+}
+
+.banner-left {
+  display: flex;
+  flex-direction: column;
+}
+
+.banner-tag {
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--clr-primary);
+  letter-spacing: 0.1em;
+  margin-bottom: var(--space-2);
+  display: inline-block;
+}
+
+.banner-title {
+  color: var(--clr-bg-dark);
+  font-size: 1.5rem;
+  line-height: 1.3;
+  margin: 0;
+}
+
+.banner-center {
+  padding: 0 var(--space-2);
+}
+
+.banner-desc {
+  color: var(--clr-text-muted);
+  font-size: 1rem;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.banner-right {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.btn-magnet {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  background-color: #E55225;
+  color: #fff;
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: 1rem;
+  padding: 14px 24px;
+  border-radius: var(--radius-sm);
+  border: none;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  white-space: nowrap;
+}
+
+.btn-magnet:hover {
+  background-color: var(--clr-primary-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(229, 82, 37, 0.25);
+}
+
+.magnet-icon {
+  margin-left: 4px;
+}
+
+/* Modal Styles */
+.magnet-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(6, 16, 34, 0.85); /* Dark overlay */
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-4);
+  backdrop-filter: blur(4px);
+}
+
+.magnet-modal-content {
+  background-color: #fff;
+  border-radius: var(--radius-md);
+  padding: var(--space-8);
+  width: 100%;
+  max-width: 500px;
+  position: relative;
+  box-shadow: 0 40px 100px rgba(0,0,0,0.15);
+  animation: modal-pop 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+@keyframes modal-pop {
+  from { opacity: 0; transform: scale(0.95) translateY(20px); }
+  to { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+.magnet-modal-close {
+  position: absolute;
+  top: 24px;
+  right: 24px;
+  background: none;
+  border: none;
+  color: var(--clr-text-muted);
+  cursor: pointer;
+  transition: color var(--transition-fast);
+  padding: 4px;
+}
+
+.magnet-modal-close:hover {
+  color: var(--clr-bg-dark);
+}
+
+.magnet-modal-header {
+  margin-bottom: var(--space-6);
+}
+
+.magnet-modal-header h4 {
+  font-size: 1.5rem;
+  color: var(--clr-bg-dark);
+  margin-bottom: var(--space-2);
+}
+
+.magnet-modal-header p {
+  color: var(--clr-text-muted);
+  font-size: 0.95rem;
+  margin: 0;
+}
+
+.magnet-form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.magnet-form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.magnet-form-group label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--clr-text-main);
+}
+
+.magnet-form-group input {
+  padding: 12px 16px;
+  border: 1px solid var(--clr-border);
+  border-radius: var(--radius-sm);
+  font-size: 1rem;
+  transition: all var(--transition-fast);
+}
+
+.magnet-form-group input:focus {
+  outline: none;
+  border-color: var(--clr-primary);
+  box-shadow: 0 0 0 3px rgba(229, 82, 37, 0.1);
+}
+
+.btn-magnet-submit {
+  margin-top: var(--space-2);
+  width: 100%;
+}
+
+.magnet-success {
+  text-align: center;
+  padding: var(--space-4) 0;
+}
+
+.success-icon {
+  width: 64px;
+  height: 64px;
+  background-color: #10B981;
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  margin: 0 auto var(--space-4);
+}
+
+.magnet-success h4 {
+  font-size: 1.5rem;
+  color: var(--clr-bg-dark);
+  margin-bottom: var(--space-2);
+}
+
+.magnet-success p {
+  color: var(--clr-text-muted);
+  margin-bottom: var(--space-6);
+}
+
+.btn-download-direct {
+  text-decoration: none;
+  font-family: var(--font-heading) !important;
+}
+
+/* Mobile Adjustments */
+@media (max-width: 991px) {
+  .banner-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-4);
+  }
+
+  .banner-left, .banner-center, .banner-right {
+    text-align: center;
+    padding: 0;
+  }
+  
+  .banner-right {
+    justify-content: center;
+    margin-top: var(--space-2);
+  }
+  
+  .btn-magnet {
+    width: 100%;
+  }
+}
+
+@media (max-width: 576px) {
+  .magnet-modal-content {
+    padding: var(--space-6) var(--space-4);
+  }
+}

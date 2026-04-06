@@ -160,6 +160,55 @@ img {
   box-shadow: 0 4px 12px rgba(229, 82, 37, 0.3);
 }
 
+.btn-premium {
+  display: inline-flex;
+  align-items: center;
+  gap: 0;
+  background-color: var(--clr-primary);
+  color: var(--clr-bg-white);
+  padding: 6px 6px 6px 20px;
+  border-radius: var(--radius-md);
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: 1.05rem;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all var(--transition-fast);
+}
+
+.btn-premium:hover {
+  background-color: var(--clr-primary-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(229, 82, 37, 0.35);
+}
+
+.btn-premium .premium-arrow {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background-color: var(--clr-bg-darker);
+  color: var(--clr-bg-white);
+  border-radius: 6px;
+  margin-left: 16px;
+  transition: all var(--transition-normal);
+}
+
+.btn-premium:hover .premium-arrow {
+  background-color: #000000;
+}
+
+.btn-premium:hover .premium-arrow svg {
+  transform: translateX(4px);
+  transition: transform var(--transition-fast);
+}
+
+.btn-premium .premium-arrow svg {
+  transition: transform var(--transition-fast);
+}
+
 .btn-secondary {
   background-color: transparent;
   color: var(--clr-primary);

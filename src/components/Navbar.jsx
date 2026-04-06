@@ -1,5 +1,5 @@
 import { Link, useLocation } from 'react-router-dom';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, ArrowRight } from 'lucide-react';
 import { useState } from 'react';
 import './Navbar.css';
 
@@ -40,7 +40,10 @@ const Navbar = () => {
         </nav>
 
         <div className="nav-actions">
-          <Link to="/contact" className="btn btn-primary d-none-mobile">Get in Touch</Link>
+          <Link to="/contact" className="btn-premium d-none-mobile">
+            Get in Touch
+            <span className="premium-arrow"><ArrowRight size={18} /></span>
+          </Link>
           <button className="mobile-toggle" onClick={toggleMenu} aria-label="Toggle menu">
             {isOpen ? <X size={24} /> : <Menu size={24} />}
           </button>

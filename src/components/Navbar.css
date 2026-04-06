@@ -20,11 +20,41 @@
   flex-shrink: 0;
 }
 
+.nav-brand-wrap {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+}
+
 .brand-logo {
   height: 72px;
   width: auto;
   display: block;
   margin: -12px 0;
+}
+
+.nav-coordinates {
+  padding-left: var(--space-4);
+  border-left: 1px solid var(--clr-border);
+  height: 24px;
+  display: flex;
+  align-items: center;
+}
+
+.coord-text {
+  font-family: var(--font-heading);
+  font-size: 0.725rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  color: var(--clr-text-muted);
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+@media (max-width: 991px) {
+  .nav-coordinates {
+    display: none;
+  }
 }
 
 .nav-list {
@@ -64,22 +94,6 @@
   gap: var(--space-2);
 }
 
-/* Override the header CTA button to match template orange style */
-.nav-actions .btn-primary {
-  display: inline-flex;
-  align-items: center;
-  gap: 0;
-  background-color: var(--clr-primary);
-  color: var(--clr-bg-darker);
-  padding: var(--space-2) var(--space-2) var(--space-2) var(--space-3);
-  border-radius: var(--radius-sm);
-  font-weight: 700;
-  font-size: 0.9rem;
-}
-
-.nav-actions .btn-primary:hover {
-  background-color: var(--clr-primary-hover);
-}
 
 .mobile-toggle {
   display: none;

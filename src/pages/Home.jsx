@@ -66,14 +66,14 @@ const Home = () => {
             <p className="hero-desc">
               Specialist advisory, design, and analysis services for industrial, commercial, and municipal clients across South Africa.
             </p>
-            <Link to="/services" className="btn-hero">
-              <span>View Our Services</span>
-              <span className="btn-hero-arrow"><ArrowRight size={18} /></span>
+            <Link to="/services" className="btn-premium">
+              View Our Services
+              <span className="premium-arrow"><ArrowRight size={18} /></span>
             </Link>
           </div>
         </div>
         <div className="hero-bottom-bar container">
-          <span className="hero-meta">Based in: Western Cape, South Africa</span>
+          <span className="hero-meta">33.9249° S, 18.4241° E</span>
           <span className="hero-scroll"><ChevronDown size={16} /> SCROLL DOWN</span>
           <span className="hero-meta">ECSA Registered Pr. Eng</span>
         </div>
@@ -82,7 +82,7 @@ const Home = () => {
       {/* ═══════════════════════════════════════════════════════
           SECTION 2: CEO VISION / QUOTE
       ═══════════════════════════════════════════════════════ */}
-      <section className="quote-section" id="vision">
+      <section className="quote-section" id="vision" style={{ position: 'relative' }}>
         <div className="container quote-grid">
           <div className="quote-portrait-col">
             <div className="quote-portrait">
@@ -93,7 +93,7 @@ const Home = () => {
           <div className="quote-text-col">
             <div className="quote-accent-line"></div>
             <blockquote className="quote-text">
-              "In electrical engineering, there is no room for compromise. Every connection, every protection device, every cable route must perform with <em>absolute reliability</em> — because lives and livelihoods depend on it."
+              "In electrical engineering, there is no room for compromise. Every connection, every protection device, every cable route must perform with <em>absolute reliability</em> - because lives and livelihoods depend on it."
             </blockquote>
             <div className="quote-author-row">
               <div className="quote-author-info">
@@ -126,9 +126,9 @@ const Home = () => {
               Bynergex Consulting delivers independent electrical engineering advisory, design, and analysis services. With 26 years of professional experience across power systems, industrial automation, SCADA platforms, and critical infrastructure, we provide the technical rigour that complex projects demand. We are a consulting-only practice. We do not install. Our recommendations serve one interest: the client.
             </p>
             <div className="about-actions">
-              <Link to="/about" className="btn-hero">
-                <span>Learn More About Us</span>
-                <span className="btn-hero-arrow"><ArrowRight size={18} /></span>
+              <Link to="/about" className="btn-premium">
+                Learn More About Us
+                <span className="premium-arrow"><ArrowRight size={18} /></span>
               </Link>
             </div>
           </div>
@@ -146,9 +146,9 @@ const Home = () => {
             <h2 className="section-heading">
               Our <span className="accent-text">Services</span>
             </h2>
-            <Link to="/services" className="btn-hero">
-              <span>Explore All Capabilities</span>
-              <span className="btn-hero-arrow"><ArrowRight size={18} /></span>
+            <Link to="/services" className="btn-premium">
+              Explore All Capabilities
+              <span className="premium-arrow"><ArrowRight size={18} /></span>
             </Link>
           </div>
 
@@ -222,8 +222,9 @@ const Home = () => {
             <p style={{ fontSize: '1.125rem', marginBottom: '2rem', color: 'var(--clr-text-light)' }}>
               Download our free guide: 10 technical questions to answer before you invest. Independent advice from an ECSA-registered Professional Engineering Technologist.
             </p>
-            <button className="btn-primary" style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem', padding: '1rem 2rem', fontSize: '1.125rem', fontWeight: 'bold' }}>
-              Download Free Guide <ArrowRight size={20} />
+            <button className="btn-premium">
+              Download Free Guide
+              <span className="premium-arrow"><ArrowRight size={18} /></span>
             </button>
           </div>
           <div className="resource-image" style={{ flex: '1 1 400px', borderRadius: '1rem', overflow: 'hidden' }}>
@@ -246,9 +247,9 @@ const Home = () => {
             <p className="cta-desc" style={{ color: '#fff', fontSize: '1.25rem', marginBottom: '2rem', maxWidth: '600px', lineHeight: '1.6' }}>
               We welcome enquiries from industrial, commercial, and municipal clients. Whether you need a power systems study, a SCADA audit, a critical power review, or an energy efficiency assessment, the conversation starts here.
             </p>
-            <Link to="/contact" className="btn-cta-primary">
-              <span>Get in Touch</span>
-              <span className="btn-hero-arrow"><ArrowRight size={18} /></span>
+            <Link to="/contact" className="btn-premium">
+              Get in Touch
+              <span className="premium-arrow"><ArrowRight size={18} /></span>
             </Link>
             <div className="cta-social-proof" style={{ marginTop: '3rem' }}>
               <div className="cta-avatars">
@@ -264,6 +265,15 @@ const Home = () => {
           </div>
         </div>
       </section>
+
+      {/* Global Architectural Grid Lines starting after Hero */}
+      <div className="layout-grid-lines global-home-grid">
+        <div className="layout-grid-line"></div>
+        <div className="layout-grid-line"></div>
+        <div className="layout-grid-line"></div>
+        <div className="layout-grid-line"></div>
+        <div className="layout-grid-line"></div>
+      </div>
 
     </div>
   );

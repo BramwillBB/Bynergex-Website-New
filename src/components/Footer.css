@@ -1,5 +1,33 @@
 .footer-area {
   padding-top: var(--space-10);
+  position: relative;
+  overflow: hidden;
+  background-color: var(--clr-bg-darker);
+}
+
+.footer-glow {
+  position: absolute;
+  top: -30%;
+  right: -30%;
+  width: 100%;
+  height: 160%;
+  background: radial-gradient(circle at center, var(--clr-primary) 0%, rgba(229, 82, 37, 0.4) 30%, transparent 65%);
+  opacity: 0.5; /* High starting opacity */
+  filter: blur(140px);
+  pointer-events: none;
+  z-index: 0;
+  animation: footer-pulse 15s ease-in-out infinite alternate;
+}
+
+@keyframes footer-pulse {
+  0% { transform: translate(0, 0) scale(1); opacity: 0.4; }
+  50% { transform: translate(-15%, 20%) scale(1.4); opacity: 0.75; } /* Extreme vibrance peak */
+  100% { transform: translate(15%, -10%) scale(0.8); opacity: 0.5; }
+}
+
+.footer-area .container {
+  position: relative;
+  z-index: 2;
 }
 
 .newsletter-box {

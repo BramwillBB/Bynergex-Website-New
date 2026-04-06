@@ -5,6 +5,8 @@ import './Footer.css';
 const Footer = () => {
   return (
     <footer className="footer-area darker-section">
+      {/* Animated Mesh Gradient Glow */}
+      <div className="footer-glow"></div>
       <div className="container">
         <div className="footer-grid" style={{ paddingTop: '4rem' }}>
           <div className="footer-col brand-col">
@@ -24,6 +26,7 @@ const Footer = () => {
               <li><Link to="/services">Services</Link></li>
               <li><Link to="/about">About</Link></li>
               <li><Link to="/contact">Contact</Link></li>
+              <li><Link to="/resources" style={{ fontWeight: '500' }}>Resources</Link></li>
             </ul>
           </div>
 

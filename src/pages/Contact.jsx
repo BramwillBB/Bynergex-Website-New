@@ -1,86 +1,129 @@
-import { Mail, Phone, MapPin, Send } from 'lucide-react';
+import React from 'react';
+import { ArrowRight, Mail, Phone, MapPin } from 'lucide-react';
+import './Contact.css';
 
 const Contact = () => {
-  return (
-    <div className="contact-page animate-fade-in">
-      <section className="page-hero darker-section">
-        <div className="container">
-          <div className="hero-content text-center">
-            <h1>Get in Touch</h1>
-            <p className="lead-text">
-              Reach out to discuss how Bynergex Consulting can add value to your next electrical engineering project.
-            </p>
-          </div>
-        </div>
-      </section>
-      
-      <section className="section">
-        <div className="container" style={{ display: 'flex', gap: '48px', flexWrap: 'wrap' }}>
-          
-          <div style={{ flex: '1 1 400px' }}>
-            <h2 style={{ marginBottom: '24px' }}>Contact Details</h2>
-            <p style={{ color: 'var(--clr-text-muted)', marginBottom: '32px' }}>
-              Whether you need compliance audits, critical power infrastructure design, or renewable energy integration, we are here to help.
-            </p>
-            
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
-              <div style={{ display: 'flex', alignItems: 'flex-start', gap: '16px' }}>
-                <div style={{ padding: '12px', backgroundColor: 'var(--clr-bg-light)', borderRadius: 'var(--radius-sm)', color: 'var(--clr-primary)' }}>
-                  <MapPin size={24} />
-                </div>
-                <div>
-                  <h4 style={{ marginBottom: '4px' }}>Headquarters</h4>
-                  <p style={{ color: 'var(--clr-text-muted)', margin: 0 }}>Western Cape, South Africa</p>
-                </div>
-              </div>
-              
-              <div style={{ display: 'flex', alignItems: 'flex-start', gap: '16px' }}>
-                <div style={{ padding: '12px', backgroundColor: 'var(--clr-bg-light)', borderRadius: 'var(--radius-sm)', color: 'var(--clr-primary)' }}>
-                  <Phone size={24} />
-                </div>
-                <div>
-                  <h4 style={{ marginBottom: '4px' }}>Phone</h4>
-                  <p style={{ color: 'var(--clr-text-muted)', margin: 0 }}>+27 (0) 00 000 0000</p>
-                </div>
-              </div>
-              
-              <div style={{ display: 'flex', alignItems: 'flex-start', gap: '16px' }}>
-                <div style={{ padding: '12px', backgroundColor: 'var(--clr-bg-light)', borderRadius: 'var(--radius-sm)', color: 'var(--clr-primary)' }}>
-                  <Mail size={24} />
-                </div>
-                <div>
-                  <h4 style={{ marginBottom: '4px' }}>Email</h4>
-                  <p style={{ color: 'var(--clr-text-muted)', margin: 0 }}>info@bynergex.co.za</p>
-                </div>
-              </div>
+    return (
+        <div className="contact-page-v2">
+            <div className="contact-header-spacer"></div>
+            {/* Background Architectural Grid Lines */}
+            <div className="layout-grid-lines">
+                <div className="layout-grid-line"></div>
+                <div className="layout-grid-line"></div>
+                <div className="layout-grid-line"></div>
+                <div className="layout-grid-line"></div>
+                <div className="layout-grid-line"></div>
             </div>
-          </div>
 
-          <div style={{ flex: '1 1 500px', backgroundColor: 'var(--clr-bg-white)', padding: '40px', borderRadius: 'var(--radius-md)', border: '1px solid var(--clr-border)', boxShadow: '0 10px 30px rgba(0,0,0,0.03)' }}>
-            <h3 style={{ marginBottom: '24px' }}>Send a Message</h3>
-            <form onSubmit={(e) => e.preventDefault()} style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
-              <div>
-                <label style={{ display: 'block', marginBottom: '8px', fontWeight: 500, fontSize: '0.9rem' }}>Full Name</label>
-                <input type="text" placeholder="John Doe" required />
-              </div>
-              <div>
-                <label style={{ display: 'block', marginBottom: '8px', fontWeight: 500, fontSize: '0.9rem' }}>Email Address</label>
-                <input type="email" placeholder="john@example.com" required />
-              </div>
-              <div>
-                <label style={{ display: 'block', marginBottom: '8px', fontWeight: 500, fontSize: '0.9rem' }}>Project Details / Inquiry</label>
-                <textarea rows="5" placeholder="How can we help you?" required></textarea>
-              </div>
-              <button type="submit" className="btn btn-primary" style={{ marginTop: '8px' }}>
-                <Send size={18} /> Send Message
-              </button>
-            </form>
-          </div>
+            <section className="contact-hero-v2">
+                <div className="container contact-grid-v2">
+                    {/* Left Column: Text Content */}
+                    <div className="contact-info-col">
+                        <div className="hero-tag-v2">
+                            <span className="tag-dot"></span>
+                            WHO WE ARE
+                        </div>
+                        <h1 className="contact-title-v2">
+                            We’re <span className="accent-text">ready</span> to listen
+                        </h1>
+                        <p className="contact-subtitle-v2">
+                            Got questions or need assistance? Reach out to us anytime — our 
+                            team is ready to provide the support and guidance you need.
+                        </p>
 
+                        <div className="contact-action-v2">
+                            <button className="btn-black-premium">
+                                Download Profile
+                                <span className="btn-accent-icon"><ArrowRight size={18} /></span>
+                            </button>
+                        </div>
+
+                        <div className="contact-details-grid-v2">
+                            <div className="contact-detail-group">
+                                <h3 className="detail-label">// Contact us on //</h3>
+                                <p className="detail-value">+27 66 252 2655</p>
+                                <p className="detail-value">consultant@bynergex.com</p>
+                            </div>
+                            <div className="contact-detail-group">
+                                <h3 className="detail-label">// Find us //</h3>
+                                <p className="detail-value">Haasendal Estate, Kuils River,</p>
+                                <p className="detail-value">Cape Town, 7580</p>
+                                <p className="detail-value">33.9249° S, 18.4241° E</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    {/* Right Column: Form Card */}
+                    <div className="contact-form-col">
+                        <div className="contact-form-card">
+                            <form className="premium-form-v2" onSubmit={(e) => e.preventDefault()}>
+                                <div className="form-row-v2">
+                                    <div className="form-group-v2">
+                                        <label>First name *</label>
+                                        <input type="text" placeholder="" required />
+                                    </div>
+                                    <div className="form-group-v2">
+                                        <label>Last name *</label>
+                                        <input type="text" placeholder="" required />
+                                    </div>
+                                </div>
+
+                                <div className="form-row-v2">
+                                    <div className="form-group-v2">
+                                        <label>Email address *</label>
+                                        <input type="email" placeholder="" required />
+                                    </div>
+                                    <div className="form-group-v2">
+                                        <label>Phone number</label>
+                                        <input type="tel" placeholder="" />
+                                    </div>
+                                </div>
+
+                                <div className="form-group-v2">
+                                    <label>Subject</label>
+                                    <input type="text" placeholder="" />
+                                </div>
+
+                                <div className="form-group-v2">
+                                    <label>Message</label>
+                                    <textarea placeholder="" rows="4"></textarea>
+                                </div>
+
+                                <button type="submit" className="btn-submit-v2">
+                                    Submit
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            {/* Professional Services Marquee Section */}
+            <section className="logo-marquee-v2">
+                <div className="marquee-outer">
+                    <div className="marquee-content">
+                        <span>POWER SYSTEMS</span> <span className="marquee-dot"></span>
+                        <span>SCADA</span> <span className="marquee-dot"></span>
+                        <span>CRITICAL POWER</span> <span className="marquee-dot"></span>
+                        <span>ENERGY EFFICIENCY</span> <span className="marquee-dot"></span>
+                        <span>GRID INTEGRATION</span> <span className="marquee-dot"></span>
+                        <span>DATA CENTRES</span> <span className="marquee-dot"></span>
+                        <span>OT CYBERSECURITY</span> <span className="marquee-dot"></span>
+                        <span>PROTECTION COORDINATION</span> <span className="marquee-dot"></span>
+                        {/* Duplicate for infinite effect */}
+                        <span>POWER SYSTEMS</span> <span className="marquee-dot"></span>
+                        <span>SCADA</span> <span className="marquee-dot"></span>
+                        <span>CRITICAL POWER</span> <span className="marquee-dot"></span>
+                        <span>ENERGY EFFICIENCY</span> <span className="marquee-dot"></span>
+                        <span>GRID INTEGRATION</span> <span className="marquee-dot"></span>
+                        <span>DATA CENTRES</span> <span className="marquee-dot"></span>
+                        <span>OT CYBERSECURITY</span> <span className="marquee-dot"></span>
+                        <span>PROTECTION COORDINATION</span> <span className="marquee-dot"></span>
+                    </div>
+                </div>
+            </section>
         </div>
-      </section>
-    </div>
-  );
+    );
 };
 
 export default Contact;

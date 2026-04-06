@@ -1,6 +1,39 @@
-/* ═══════════════════════════════════════════════════════
-   HOME PAGE STYLES — Matching Manufactt Template
-   ═══════════════════════════════════════════════════════ */
+/* ==========================================================================
+   HOME PAGE STYLES - Matching Manufactt Template
+   ========================================================================== */
+
+.home-page {
+  background-color: var(--clr-bg-white);
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* --- Global Layout Elements --- */
+.layout-grid-lines.global-home-grid {
+  position: absolute;
+  top: 100vh; /* Start after Hero Video */
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  max-width: 1400px;
+  height: auto;
+  padding: 0 40px;
+  display: flex;
+  justify-content: space-between;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.layout-grid-line {
+  width: 1px;
+  height: 100%;
+  background-image: linear-gradient(to bottom, #111 30%, rgba(0,0,0,0) 0%);
+  background-position: left;
+  background-size: 1px 10px;
+  background-repeat: repeat-y;
+  opacity: 0.5; /* Maximally increased for a bold architectural blueprint look */
+}
 
 /* ─── Shared ───────────────────────────────────────── */
 .accent-text { color: var(--clr-primary); }
@@ -124,43 +157,7 @@
   margin-bottom: var(--space-4);
 }
 
-.btn-hero {
-  display: inline-flex;
-  align-items: center;
-  gap: 0;
-  background-color: var(--clr-bg-dark);
-  color: var(--clr-bg-white);
-  padding: var(--space-2) var(--space-2) var(--space-2) var(--space-4);
-  border-radius: var(--radius-sm);
-  font-family: var(--font-heading);
-  font-weight: 600;
-  font-size: 0.95rem;
-  transition: all var(--transition-fast);
-  cursor: pointer;
-  border: none;
-}
 
-.btn-hero:hover {
-  background-color: #162A4A;
-  transform: translateY(-1px);
-}
-
-.btn-hero-arrow {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 40px;
-  height: 40px;
-  background-color: var(--clr-primary);
-  color: var(--clr-bg-darker);
-  border-radius: var(--radius-sm);
-  margin-left: var(--space-3);
-  transition: background-color var(--transition-fast);
-}
-
-.btn-hero:hover .btn-hero-arrow {
-  background-color: var(--clr-primary-hover);
-}
 
 .hero-bottom-bar {
   position: relative;
@@ -194,10 +191,11 @@
    2. CEO QUOTE SECTION
    ═══════════════════════════════════════════════════════ */
 .quote-section {
-  background-color: var(--clr-bg-white);
+  background-color: #f8f9fa; /* Off-white / light grey shading for distinction */
   padding: var(--space-12) 0;
   position: relative;
   overflow: hidden;
+  border-bottom: 1px solid var(--clr-border);
 }
 
 .quote-grid {
@@ -753,32 +751,8 @@
   color: var(--clr-primary);
 }
 
-.btn-cta-primary {
-  display: inline-flex;
-  align-items: center;
-  gap: 0;
-  background-color: var(--clr-primary);
-  color: var(--clr-bg-darker);
-  padding: var(--space-2) var(--space-2) var(--space-2) var(--space-4);
-  border-radius: var(--radius-sm);
-  font-family: var(--font-heading);
-  font-weight: 700;
-  font-size: 1rem;
-  transition: all var(--transition-fast);
-  cursor: pointer;
-  border: none;
+.cta-banner-left .btn-premium {
   margin-bottom: var(--space-5);
-}
-
-.btn-cta-primary .btn-hero-arrow {
-  background-color: var(--clr-bg-dark);
-  color: var(--clr-bg-white);
-}
-
-.btn-cta-primary:hover {
-  background-color: var(--clr-primary-hover);
-  transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(229, 82, 37, 0.3);
 }
 
 .cta-social-proof {
