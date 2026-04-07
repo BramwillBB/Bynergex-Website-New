@@ -441,3 +441,28 @@
   color: var(--clr-text-muted);
   line-height: 1.6;
 }
+
+@media (max-width: 768px) {
+  .service-detail-name {
+    font-size: 2.5rem;
+  }
+  .category-title {
+    font-size: 2rem;
+  }
+  .section-title, .title-center {
+    font-size: 2rem;
+  }
+  .service-detail-description {
+    font-size: 1.1rem;
+  }
+  .grid-feature {
+    grid-template-columns: 1fr;
+  }
+  .service-detail-image {
+    min-height: 250px;
+    height: 40vh;
+  }
+  .more-info-inner, .grid-step {
+    gap: var(--space-5);
+  }
+}

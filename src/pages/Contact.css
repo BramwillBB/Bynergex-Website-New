@@ -304,7 +304,7 @@
 @media (max-width: 991px) {
   .contact-grid-v2 {
     grid-template-columns: 1fr;
-    gap: var(--space-12);
+    gap: var(--space-8);
   }
   .contact-info-col {
     padding-right: 0;
@@ -324,5 +324,21 @@
   }
   .contact-details-grid-v2 {
     text-align: left;
+  }
+}
+
+@media (max-width: 768px) {
+  .premium-form-v2 .form-row-v2 {
+    grid-template-columns: 1fr;
+  }
+  .contact-title-v2 {
+    font-size: 2.2rem;
+  }
+  .contact-details-grid-v2 {
+    grid-template-columns: 1fr;
+    gap: var(--space-6);
+  }
+  .btn-submit-v2 {
+    padding: 14px;
   }
 }

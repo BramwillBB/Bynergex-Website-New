@@ -920,4 +920,13 @@
   .stats-grid {
     grid-template-columns: 1fr;
   }
+  .hero-title {
+    font-size: 2.5rem;
+  }
+  .cta-banner-left h2 {
+    font-size: 2rem;
+  }
+  .showcase-counter {
+    font-size: 2.5rem;
+  }
 }

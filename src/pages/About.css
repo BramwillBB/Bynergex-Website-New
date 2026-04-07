@@ -480,3 +480,24 @@
   letter-spacing: 0.1em;
   margin-top: 10px;
 }
+
+@media (max-width: 768px) {
+  .about-hero-title {
+    font-size: 2.5rem;
+  }
+  .about-hero-description {
+    font-size: 1.1rem;
+  }
+  .marquee-text {
+    font-size: 3rem;
+  }
+  .inner-number {
+    font-size: 4rem;
+  }
+  .video-title {
+    font-size: 2.2rem;
+  }
+  .about-story-title {
+    font-size: 1.5rem;
+  }
+}

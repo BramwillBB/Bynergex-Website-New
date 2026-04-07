@@ -133,6 +133,15 @@ img {
   color: var(--clr-text-light-muted);
 }
 
+@media (max-width: 768px) {
+  .section {
+    padding: var(--space-8) 0;
+  }
+  .container {
+    padding: 0 var(--space-3);
+  }
+}
+
 /* Buttons */
 .btn {
   display: inline-flex;
