@@ -9,9 +9,34 @@ content from `copy/brand-kit.md`.
 ```bash
 npm install
 npm run dev                    # http://localhost:5173
-npm run build -- --base=./     # portable static build in dist/
+npm run build                  # static build in dist/, served from the domain root
 npx vite preview               # check the build over HTTP (never open dist/ via file://)
 ```
+
+## Pages
+
+- `/` (`index.html`): the film story, Energy Loss Audit, efficiency first,
+  assurance, SSEG, about, FAQ, enquiry
+- `/energy-audit/`, `/sseg-commissioning/`, `/electrical-compliance-assurance/`:
+  one search landing page per service, each with its own title, description,
+  canonical URL, FAQ and JSON-LD (Service, BreadcrumbList, FAQPage)
+- `/blog/` and `/blog/<slug>/`: the blog index and articles. A new article is a
+  new `blog/<slug>/index.html` (copy the first one: BlogPosting, BreadcrumbList
+  and FAQPage JSON-LD), plus a card on `blog/index.html`, a `blogPost` entry in
+  its JSON-LD, a line in `vite.config.js` and a URL in `public/sitemap.xml`.
+- `vite.config.js` lists every page for the build. Navigation, enquiry form
+  and footer are repeated in each page, so change them in all four.
+- `public/robots.txt`, `public/sitemap.xml` (update `lastmod` when pages change)
+  and `public/.htaccess` (301s from the old React site's URLs, plus Hostinger's
+  own `.builds` rule, which must stay)
+- If an FAQ answer changes, change the matching JSON-LD `FAQPage` text in the
+  same file so they stay identical.
+
+## Going live
+
+bynergex.com builds automatically from GitHub `BramwillBB/Bynergex-Website-New`,
+branch `main`. Copy this folder's files (not `node_modules` or `dist`) into the
+repo and push to main; Hostinger builds and publishes in under a minute.
 
 ## Where things live
 

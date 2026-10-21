@@ -1,0 +1,16 @@
+# Send links to the old React site's pages to their nearest new page, so search engines keep the value.
+RewriteEngine On
+# Hostinger's own rule: never serve its build folder.
+RewriteRule ^\.builds - [F,L]
+RewriteRule ^services/?$ / [R=301,L]
+RewriteRule ^services/.+$ / [R=301,L]
+RewriteRule ^about/?$ /#about [R=301,NE,L]
+RewriteRule ^contact/?$ /#contact [R=301,NE,L]
+RewriteRule ^resources/?$ /energy-audit/ [R=301,L]
+
+# Keep HTML fresh so a new deploy shows straight away.
+<IfModule mod_headers.c>
+  <FilesMatch "\.html$">
+    Header set Cache-Control "no-cache"
+  </FilesMatch>
+</IfModule>

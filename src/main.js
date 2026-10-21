@@ -1,28 +1,6 @@
-import Lenis from "lenis";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-gsap.registerPlugin(ScrollTrigger);
+// Home page: the scrubbed film, the story beats and the home-only effects. Shared behaviour lives in common.js.
+import { lenis, gsap, ScrollTrigger, REDUCED, reveal, drawLoadProfile } from "./common.js";
 if ("scrollRestoration" in history) history.scrollRestoration = "manual";   // the story always starts at beat one
-
-const REDUCED = matchMedia("(prefers-reduced-motion: reduce)").matches;
-const lenis = new Lenis({ lerp: 0.1, smoothWheel: true });
-lenis.on("scroll", ScrollTrigger.update);
-gsap.ticker.add((t) => lenis.raf(t * 1000));
-gsap.ticker.lagSmoothing(0);
-
-// ---- in-page links go through Lenis, clear of the fixed header ----
-document.querySelectorAll('a[href^="#"]').forEach((a) => a.addEventListener("click", (e) => {
-  const target = document.querySelector(a.getAttribute("href"));
-  if (!target) return;
-  e.preventDefault();
-  lenis.scrollTo(target, { offset: a.getAttribute("href") === "#top" ? 0 : -70 });
-}));
-
-// ---- header turns solid once the hero has scrolled away ----
-const header = document.querySelector(".site-header");
-const setHeader = () => header.classList.toggle("is-solid", scrollY > innerHeight * 0.6);
-lenis.on("scroll", setHeader);
-setHeader();
 
 // ---- the film: scrubbed across the story only, loaded as a Blob so seeks work on any host ----
 const story = document.getElementById("story");
@@ -92,16 +70,12 @@ gsap.utils.toArray(".stage").forEach((stage) => ScrollTrigger.create({
   trigger: stage, start: "top 62%", onEnter: () => stage.classList.add("is-reached"), onLeaveBack: () => stage.classList.remove("is-reached"),
 }));
 
-// ---- reveals ----
-const revealSel = [".impact__lead", ".impact__punch", ".assurance__head > *", ".stage__body", ".sseg__intro", ".sseg__who", ".sseg__steps > div",
+reveal([".impact__lead", ".impact__punch", ".energy__head > *", ".loadprofile", ".losses li", ".energy__steps > li", ".energy__gains > div",
+  ".first__copy > *", ".assurance__head > *", ".stage__body", ".sseg__intro", ".sseg__who", ".sseg__steps > div",
   ".focus__copy > *", ".focus__list li", ".about__copy > *", ".record__item", ".integrity > h2", ".integrity__cols", ".integrity__roles",
-  ".clients__who > *", ".clients__when", ".outcomes > h2", ".register li", ".outcomes__close", ".contact__head > *", ".way", ".enquiry"].join(",");
-if (!REDUCED) {
-  gsap.utils.toArray(revealSel).forEach((el) => {
-    el.classList.add("reveal");
-    gsap.to(el, { opacity: 1, y: 0, duration: 0.9, ease: "power3.out", scrollTrigger: { trigger: el, start: "top 88%", once: true } });
-  });
-}
+  ".clients__who > *", ".clients__when", ".outcomes > h2", ".register li", ".outcomes__close", ".faq > h2", ".faq details",
+  ".contact__head > *", ".ways", ".enquiry"].join(","));
+drawLoadProfile();
 
 // ---- record in numbers: count up once ----
 document.querySelectorAll("[data-count]").forEach((el) => {
@@ -112,31 +86,10 @@ document.querySelectorAll("[data-count]").forEach((el) => {
     onEnter: () => gsap.to(obj, { n: to, duration: 1.6, ease: "power2.out", onUpdate: () => { el.textContent = Math.round(obj.n); } }) });
 });
 
-// ---- SSEG audience switcher (accessible tabs) ----
-const tabs = [...document.querySelectorAll('.seg [role="tab"]')];
-function selectTab(tab) {
-  tabs.forEach((t) => {
-    const on = t === tab;
-    t.setAttribute("aria-selected", String(on));
-    t.tabIndex = on ? 0 : -1;
-    document.getElementById(t.getAttribute("aria-controls")).hidden = !on;
-  });
-}
-tabs.forEach((t, i) => {
-  t.addEventListener("click", () => selectTab(t));
-  t.addEventListener("keydown", (e) => {
-    const d = e.key === "ArrowRight" ? 1 : e.key === "ArrowLeft" ? -1 : 0;
-    if (!d) return;
-    const next = tabs[(i + d + tabs.length) % tabs.length];
-    selectTab(next); next.focus();
-  });
-});
-
 // ---- 3D tilt on the copper image (desktop only, max 6°) ----
 if (matchMedia("(hover: hover) and (min-width: 769px)").matches && !REDUCED) {
   document.querySelectorAll(".tilt").forEach((card) => {
-    const wrap = card.parentElement;
-    wrap.style.perspective = "1200px";
+    card.parentElement.style.perspective = "1200px";
     card.addEventListener("pointermove", (e) => {
       const r = card.getBoundingClientRect();
       const x = (e.clientX - r.left) / r.width - 0.5, y = (e.clientY - r.top) / r.height - 0.5;
@@ -146,31 +99,4 @@ if (matchMedia("(hover: hover) and (min-width: 769px)").matches && !REDUCED) {
   });
 }
 
-// ---- enquiry form: validates, then opens the visitor's email app addressed to the practice ----
-const form = document.getElementById("enquiry");
-const status = form.querySelector(".enquiry__status");
-document.querySelectorAll('[data-service="sseg"]').forEach((a) => a.addEventListener("click", () => {
-  form.service.value = "SSEG commissioning";
-  form.stage.value = "Solar or battery system installed, awaiting sign-off";
-}));
-form.addEventListener("submit", (e) => {
-  e.preventDefault();
-  let ok = true;
-  for (const name of ["decision", "name", "email"]) {
-    const el = form[name], field = el.closest(".field");
-    const valid = el.value.trim() !== "" && (name !== "email" || /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(el.value.trim()));
-    field.classList.toggle("is-invalid", !valid);
-    if (!valid && ok) { el.focus(); ok = false; }
-  }
-  if (!ok) { status.textContent = "Please add the pending decision, your name and a valid email."; return; }
-  const v = (n) => form[n].value.trim();
-  const body = [
-    `Service: ${v("service")}`, `Project stage: ${v("stage")}`, "", "Decision pending:", v("decision"), "",
-    `Name: ${v("name")}`, `Email: ${v("email")}`, v("company") ? `Company / site: ${v("company")}` : null, v("phone") ? `Phone: ${v("phone")}` : null,
-  ].filter((l) => l !== null).join("\n");
-  const href = `mailto:consultant@bynergex.com?subject=${encodeURIComponent(`Enquiry: ${v("service")} (${v("stage")})`)}&body=${encodeURIComponent(body)}`;
-  window.location.href = href;
-  status.textContent = "Your email app should open with the enquiry ready to send. If it doesn't, write to consultant@bynergex.com.";
-});
-
-if (import.meta.env.DEV) { window.__lenis = lenis; window.__ST = ScrollTrigger; window.__bgv = bgVideo; }
+if (import.meta.env.DEV) window.__bgv = bgVideo;
