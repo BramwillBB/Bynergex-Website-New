@@ -390,7 +390,9 @@
           <p class="ways__note">Every engagement is quoted on a written scope after a short conversation. No scope, no invoice.</p>
         </div>
 
-        <form class="enquiry" id="enquiry" novalidate>
+        <form class="enquiry" id="enquiry" action="/api/enquiry.php" method="post" novalidate>
+          <input type="hidden" name="t" value="" />
+          <div class="enquiry__trap" aria-hidden="true"><label>Leave this empty <input name="website" tabindex="-1" autocomplete="off" /></label></div>
           <fieldset class="enquiry__choice">
             <legend>What do you need?</legend>
             <label><input type="radio" name="service" value="Energy loss audit" /> <span>Energy loss audit</span></label>
@@ -420,7 +422,7 @@
           <label class="field"><span>Phone (optional)</span><input name="phone" type="tel" autocomplete="tel" /></label>
           <div class="enquiry__send">
             <button class="btn" type="submit">Send enquiry <span aria-hidden="true">→</span></button>
-            <p class="enquiry__hint">Opens your email app with the details filled in, addressed to consultant@bynergex.com.</p>
+            <p class="enquiry__hint">Goes straight to consultant@bynergex.com. We use your details only to reply to you.</p>
           </div>
           <p class="enquiry__status" role="status" aria-live="polite"></p>
         </form>

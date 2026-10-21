@@ -512,3 +512,10 @@ body.video-failed .bg-video { display: none; }
   .post-hero::after { background: linear-gradient(180deg, rgba(6, 12, 26, .45) 0%, rgba(6, 12, 26, .9) 55%, var(--bg) 100%); }
   .takeaways { padding: 1.3rem 1.2rem; }
 }
+
+/* ---------- enquiry: spam trap and send states ---------- */
+.enquiry__trap { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+.enquiry { position: relative; }
+.enquiry button[disabled] { opacity: .6; cursor: progress; }
+.enquiry__status.is-sent { color: #86efac; }
+.enquiry__status.is-error { color: #fca5a5; }

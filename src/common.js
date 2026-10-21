@@ -80,10 +80,12 @@ tabs.forEach((t, i) => {
   });
 });
 
-// ---- enquiry form: validates, then opens the visitor's email app addressed to the practice ----
+// ---- enquiry form: validates, then sends to /api/enquiry.php, which emails it to the practice ----
 const form = document.getElementById("enquiry");
 if (form) {
   const status = form.querySelector(".enquiry__status");
+  const sendBtn = form.querySelector('button[type="submit"]');
+  form.t.value = String(Date.now());          // the server ignores forms sent within 3 s of loading (bots)
   document.querySelectorAll("[data-service]").forEach((a) => a.addEventListener("click", () => {
     const pick = { sseg: ["SSEG commissioning", "Solar or battery system installed, awaiting sign-off"],
       energy: ["Energy loss audit", "High electricity bills, want to know why"],
@@ -92,7 +94,7 @@ if (form) {
     form.service.value = pick[0];
     form.stage.value = pick[1];
   }));
-  form.addEventListener("submit", (e) => {
+  form.addEventListener("submit", async (e) => {
     e.preventDefault();
     let ok = true;
     for (const name of ["decision", "name", "email"]) {
@@ -101,14 +103,29 @@ if (form) {
       field.classList.toggle("is-invalid", !valid);
       if (!valid && ok) { el.focus(); ok = false; }
     }
+    status.classList.remove("is-sent", "is-error");
     if (!ok) { status.textContent = "Please add what you need help with, your name and a valid email."; return; }
-    const v = (n) => form[n].value.trim();
-    const body = [
-      `Service: ${v("service")}`, `Where things stand: ${v("stage")}`, "", "What we need help with:", v("decision"), "",
-      `Name: ${v("name")}`, `Email: ${v("email")}`, v("company") ? `Company / site: ${v("company")}` : null, v("phone") ? `Phone: ${v("phone")}` : null,
-    ].filter((l) => l !== null).join("\n");
-    window.location.href = `mailto:consultant@bynergex.com?subject=${encodeURIComponent(`Enquiry: ${v("service")} (${v("stage")})`)}&body=${encodeURIComponent(body)}`;
-    status.textContent = "Your email app should open with the enquiry ready to send. If it doesn't, write to consultant@bynergex.com or call +27 66 252 2655.";
+
+    const data = new FormData(form);
+    data.set("page", location.pathname);
+    sendBtn.disabled = true;
+    status.textContent = "Sending…";
+    try {
+      const res = await fetch("/api/enquiry.php", { method: "POST", body: data, headers: { Accept: "application/json" } });
+      const json = await res.json().catch(() => ({}));
+      if (!res.ok || !json.ok) throw new Error(json.error || res.status);
+      form.reset();
+      form.t.value = String(Date.now());
+      status.classList.add("is-sent");
+      status.textContent = "Thank you. Your enquiry is on its way to consultant@bynergex.com, and we'll reply by email.";
+    } catch (err) {
+      status.classList.add("is-error");
+      status.textContent = String(err.message) === "rate"
+        ? "You've sent several enquiries in the last hour. Please email consultant@bynergex.com or call +27 66 252 2655."
+        : "Sorry, the enquiry didn't send. Please email consultant@bynergex.com or call +27 66 252 2655.";
+    } finally {
+      sendBtn.disabled = false;
+    }
   });
 }
 
