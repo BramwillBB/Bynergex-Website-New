@@ -1,16 +1,41 @@
-# React + Vite
+# bynergex.com
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+The Bynergex Consulting site: a single page with a scroll-scrubbed hero film,
+live warm-dust particles over it, and the assurance and SSEG commissioning
+content from `copy/brand-kit.md`.
 
-Currently, two official plugins are available:
+## Run and build
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+```bash
+npm install
+npm run dev                    # http://localhost:5173
+npm run build -- --base=./     # portable static build in dist/
+npx vite preview               # check the build over HTTP (never open dist/ via file://)
+```
 
-## React Compiler
+## Where things live
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- `index.html`: all copy and sections
+- `src/style.css`: brand tokens (navy, Bynergex orange, Outfit and Inter) and layout
+- `src/main.js`: smooth scroll, the film scrub (story section only), beat fades,
+  the evidence line, reveals, SSEG tabs, the enquiry form
+- `src/atmosphere.js` and `src/particles.js`: the WebGL dust and sparks layer
+- `public/film.mp4`: the hero film, re-encoded for scrubbing (loaded as a Blob so
+  it scrubs on hosts without HTTP Range support). Phones and reduced-motion
+  visitors get the poster `public/img/hero.jpg` instead and never download it.
+- `public/img/`: poster, world, doorway (a frame from the film), copper macro,
+  the original and reversed logo, the social share image
 
-## Expanding the ESLint configuration
+## Where a visitor's message goes
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+The enquiry form does not send anything itself. On submit it checks the
+required fields, then opens the visitor's own email app with a message to
+**consultant@bynergex.com**, pre-filled with the service, project stage,
+pending decision and their details. Nothing is stored on the site.
+
+## Contact details on the site
+
+consultant@bynergex.com, +27 66 252 2655, and
+https://www.linkedin.com/in/bramwillbruinders (footer, About, enquiry section).
+The copy speaks as "we"; the About section introduces Bramwill Bruinders,
+Pr. Tech. Eng., as principal.
