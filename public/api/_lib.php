@@ -129,7 +129,13 @@ function sign(string ...$parts): string {
     return substr(hash_hmac('sha256', implode('|', $parts), secret()), 0, 32);
 }
 
+// Mail goes through the real Hostinger mailbox over authenticated SMTP when the owner has
+// put its login in bynergex-private/smtp.json, so it is DKIM-signed and trusted by Gmail and
+// others. Without that file (or if SMTP fails) it falls back to PHP mail(), which reliably
+// reaches the practice's own Hostinger inbox but not always outside addresses.
+$GLOBALS['mail_via'] = '';
 function send_mail(string $to, string $subject, string $body, string $replyTo = ''): bool {
+    $encSubject = '=?UTF-8?B?' . base64_encode($subject) . '?=';
     $headers = [
         'From: Bynergex Consulting <' . OWNER_EMAIL . '>',
         'MIME-Version: 1.0',
@@ -137,5 +143,51 @@ function send_mail(string $to, string $subject, string $body, string $replyTo = 
         'Content-Transfer-Encoding: 8bit',
     ];
     if ($replyTo !== '') $headers[] = 'Reply-To: ' . $replyTo;
-    return @mail($to, '=?UTF-8?B?' . base64_encode($subject) . '?=', $body, implode("\r\n", $headers), '-f' . OWNER_EMAIL);
+    $cfg = smtp_config();
+    if ($cfg && smtp_send($cfg, $to, $encSubject, $body, $headers)) { $GLOBALS['mail_via'] = 'smtp'; return true; }
+    $GLOBALS['mail_via'] = $cfg ? 'mail (smtp failed)' : 'mail';
+    return @mail($to, $encSubject, $body, implode("\r\n", $headers), '-f' . OWNER_EMAIL);
+}
+
+function smtp_config(): ?array {
+    $path = data_dir() . '/smtp.json';
+    if (!is_file($path)) return null;
+    $c = json_decode((string) file_get_contents($path), true);
+    if (!is_array($c) || empty($c['user']) || empty($c['pass'])) return null;
+    return ['host' => $c['host'] ?? 'smtp.hostinger.com', 'port' => (int) ($c['port'] ?? 465), 'user' => $c['user'], 'pass' => $c['pass']];
+}
+
+function smtp_send(array $cfg, string $to, string $subject, string $body, array $headers): bool {
+    $fp = @stream_socket_client('ssl://' . $cfg['host'] . ':' . $cfg['port'], $errno, $errstr, 15);
+    if (!$fp) return false;
+    stream_set_timeout($fp, 15);
+    $expect = function (?string $command, array $codes) use ($fp): bool {
+        if ($command !== null) fwrite($fp, $command . "\r\n");
+        $reply = '';
+        while (($line = fgets($fp, 1024)) !== false) {
+            $reply .= $line;
+            if (strlen($line) < 4 || $line[3] === ' ') break;      // last line of a multi-line reply
+        }
+        return in_array((int) substr($reply, 0, 3), $codes, true);
+    };
+    $message = implode("\r\n", array_merge([
+        'Date: ' . date('r'),
+        'To: <' . $to . '>',
+        'Subject: ' . $subject,
+        'Message-ID: <' . bin2hex(random_bytes(12)) . '@bynergex.com>',
+    ], $headers)) . "\r\n\r\n" . $body;
+    $message = preg_replace("/\r?\n/", "\r\n", $message);
+    $message = preg_replace('/^\./m', '..', $message);             // SMTP dot-stuffing
+    $ok = $expect(null, [220])
+        && $expect('EHLO bynergex.com', [250])
+        && $expect('AUTH LOGIN', [334])
+        && $expect(base64_encode($cfg['user']), [334])
+        && $expect(base64_encode($cfg['pass']), [235])
+        && $expect('MAIL FROM:<' . $cfg['user'] . '>', [250])
+        && $expect('RCPT TO:<' . $to . '>', [250, 251])
+        && $expect('DATA', [354])
+        && $expect($message . "\r\n.", [250]);
+    @fwrite($fp, "QUIT\r\n");
+    fclose($fp);
+    return $ok;
 }

@@ -32,7 +32,7 @@ function wireForm(form, { url, action, required, onSuccess }) {
       form.reset();
       form.t.value = String(Date.now());
       status.classList.add("is-sent");
-      status.textContent = onSuccess(email);
+      status.textContent = onSuccess(email, json);
     } catch (err) {
       status.classList.add("is-error");
       status.textContent = String(err.message) === "rate"
@@ -47,7 +47,22 @@ function wireForm(form, { url, action, required, onSuccess }) {
 const magnet = document.querySelector(".magnet-form");
 if (magnet) wireForm(magnet, {
   url: "/api/lead.php", required: ["name", "email", "consent"],
-  onSuccess: (email) => `Done. We've emailed the PDF to ${email}. If it isn't there in a few minutes, check your spam folder.`,
+  onSuccess: (email, json) => {
+    // The files are offered on the page straight away; the email is a copy to keep.
+    let box = magnet.querySelector(".magnet-files");
+    if (!box) { box = document.createElement("div"); box.className = "magnet-files"; magnet.querySelector(".form-status").before(box); }
+    box.replaceChildren();
+    for (const f of json.files || []) {
+      const a = document.createElement("a");
+      a.className = "btn magnet-files__link";
+      a.href = f.url;
+      a.target = "_blank";
+      a.rel = "noopener";
+      a.textContent = `Download: ${f.label}`;
+      box.append(a);
+    }
+    return `Thank you. Your downloads are ready above, and we've sent a copy of the links to ${email}.`;
+  },
 });
 
 const engage = document.querySelector(".engage");

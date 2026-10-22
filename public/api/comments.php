@@ -31,7 +31,9 @@ function approved(string $slug): array {
 if ($_SERVER['REQUEST_METHOD'] === 'GET' && $action === 'health') {
     $probe = data_dir() . '/.probe';
     $ok = @file_put_contents($probe, 'ok') === 2 && @unlink($probe);
-    reply($ok ? 200 : 500, ['ok' => $ok]);
+    secret();   // created on first use; its date shows the folder survives deploys
+    reply($ok ? 200 : 500, ['ok' => $ok, 'beside' => basename(dirname(data_dir())),
+        'since' => date('c', (int) filemtime(data_dir() . '/secret.key')), 'smtp' => smtp_config() !== null]);
 }
 if ($_SERVER['REQUEST_METHOD'] === 'GET' && $action === '') {
     $slug = post_slug($_GET);

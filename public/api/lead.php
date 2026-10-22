@@ -38,12 +38,15 @@ $sent = send_mail($email, 'Your download: ' . $post['resource'],
     . ($updates ? "You also asked for occasional updates; reply STOP to opt out at any time." : "We won't email you again unless you contact us.")
     . "\nPrivacy policy: " . SITE . "/privacy/\n",
     OWNER_EMAIL);
-if (!$sent) reply(502, ['ok' => false, 'error' => 'mail']);
+$readerVia = $GLOBALS['mail_via'];
 
 send_mail(OWNER_EMAIL, 'New download lead: ' . $name . ($company !== '' ? " ($company)" : ''),
     "New lead from a blog download\n\nResource: " . $post['resource'] . "\nArticle: " . $post['title'] . "\n\n"
     . "Name: $name\nEmail: $email\n" . ($company !== '' ? "Company: $company\n" : '') . ($role !== '' ? "Role: $role\n" : '')
-    . 'Occasional updates: ' . ($updates ? 'Yes, opted in' : 'No') . "\n\nReply to this email to contact them directly.",
+    . 'Occasional updates: ' . ($updates ? 'Yes, opted in' : 'No') . "\n"
+    . 'Download email to the reader: ' . ($sent ? "handed to the mail server via $readerVia" : "FAILED via $readerVia")
+    . ($readerVia === 'smtp' ? '' : ' (they also got the download buttons on the page; add smtp.json for reliable delivery)')
+    . "\n\nReply to this email to contact them directly.",
     $email);
 
 $csv = data_dir() . '/leads.csv';
@@ -56,4 +59,7 @@ if ($h) {
     flock($h, LOCK_UN); fclose($h);
 }
 
-reply(200, ['ok' => true]);
+// The reader also gets the files on the page straight away, so they never depend on the email.
+$files = [];
+foreach ($post['files'] as $label => $path) $files[] = ['label' => $label, 'url' => $path];
+reply(200, ['ok' => true, 'emailed' => $sent, 'files' => $files]);

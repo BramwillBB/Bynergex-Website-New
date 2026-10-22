@@ -570,3 +570,5 @@ body.video-failed .bg-video { display: none; }
 }
 .magnet > *, .magnet-form > *, .ask-form > * { min-width: 0; }
 .magnet-form input:not([type="checkbox"]), .ask-form input:not([type="checkbox"]), .ask-form textarea { width: 100%; }
+.magnet-files { grid-column: 1 / -1; display: flex; flex-wrap: wrap; gap: .8rem; padding: 1rem; border: 1px solid var(--accent); border-radius: var(--radius); background: rgba(229, 82, 37, .1); }
+.magnet-files__link { flex: 1 1 14rem; justify-content: center; }
