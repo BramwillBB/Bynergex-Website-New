@@ -15,6 +15,7 @@ export default defineConfig({
         blog: page("blog/index.html"),
         post1: page("blog/energy-audit-before-solar-south-africa/index.html"),
         post2: page("blog/sseg-registration-cape-town-guide/index.html"),
+        privacy: page("privacy/index.html"),
       },
     },
   },

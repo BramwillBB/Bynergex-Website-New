@@ -1,4 +1,6 @@
 User-agent: *
 Allow: /
+Disallow: /api/
+Disallow: /downloads/
 
 Sitemap: https://bynergex.com/sitemap.xml

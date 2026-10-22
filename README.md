@@ -32,6 +32,23 @@ npx vite preview               # check the build over HTTP (never open dist/ via
 - If an FAQ answer changes, change the matching JSON-LD `FAQPage` text in the
   same file so they stay identical.
 
+## Blog downloads, ratings and questions
+
+- `public/api/lead.php`: A download form at the end of each post. It emails the
+  reader the companion PDF and the article PDF, emails the lead to
+  consultant@bynergex.com, and appends it to `leads.csv` in the private folder.
+- `public/api/comments.php`: Ratings (one per visitor per post) and "Ask the
+  engineer" questions. A new question emails Bramwill a signed link to publish
+  it (with an answer, which is also emailed to the reader) or delete it.
+- `public/api/_lib.php`: Shared helpers and the `POSTS` list. Add every new post
+  there with its download files.
+- Private data (questions, ratings, leads, the signing secret) lives in
+  `bynergex-private/` beside `public_html` on Hostinger, so deploys never touch it.
+- PDFs live in `public/downloads/` with random filename suffixes, are
+  `noindex`, and are excluded in `robots.txt`. Their sources and the Chrome
+  render script are in `copy/pdf-source/`.
+- `/privacy/`: The POPIA privacy policy, linked from every footer and form.
+
 ## Going live
 
 bynergex.com builds automatically from GitHub `BramwillBB/Bynergex-Website-New`,
