@@ -53,10 +53,15 @@ repo and push to main; Hostinger builds and publishes in under a minute.
 
 ## Where a visitor's message goes
 
-The enquiry form does not send anything itself. On submit it checks the
-required fields, then opens the visitor's own email app with a message to
-**consultant@bynergex.com**, pre-filled with the service, project stage,
-pending decision and their details. Nothing is stored on the site.
+The enquiry form posts to `public/api/enquiry.php` on Hostinger, which emails
+it straight to **consultant@bynergex.com** through Hostinger's own mail server
+(the domain's MX and SPF records are Hostinger's, so no password is stored in
+the code). Reply-To is set to the visitor, so replying answers them directly.
+Spam protection: a hidden "website" field, a 3-second minimum fill time and at
+most 5 enquiries per visitor per hour. If sending fails, the visitor is shown
+the email address and phone number instead. Nothing is stored on the site.
+The PHP file only runs on Hostinger; in `npm run dev` the form shows its
+fallback message.
 
 ## Contact details on the site
 
