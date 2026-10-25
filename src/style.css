@@ -572,3 +572,18 @@ body.video-failed .bg-video { display: none; }
 .magnet-form input:not([type="checkbox"]), .ask-form input:not([type="checkbox"]), .ask-form textarea { width: 100%; }
 .magnet-files { grid-column: 1 / -1; display: flex; flex-wrap: wrap; gap: .8rem; padding: 1rem; border: 1px solid var(--accent); border-radius: var(--radius); background: rgba(229, 82, 37, .1); }
 .magnet-files__link { flex: 1 1 14rem; justify-content: center; }
+
+/* ---------- power triangle diagram (blog) ---------- */
+.triangle { margin: 2.2rem 0; padding: 1.4rem 1.6rem; background: rgba(6, 16, 34, .72); border: 1px solid var(--line-soft); border-radius: var(--radius); }
+.triangle svg { width: 100%; height: auto; display: block; }
+.tri-fill { fill: rgba(229, 82, 37, .08); }
+.tri-kw { stroke: #7dd3fc; stroke-width: 5; stroke-linecap: round; }
+.tri-kvar { stroke: var(--muted); stroke-width: 5; stroke-linecap: round; }
+.tri-kva { stroke: var(--accent); stroke-width: 5; stroke-linecap: round; }
+.tri-angle { fill: none; stroke: var(--text); stroke-width: 2; }
+.tri-label { fill: #dbe3ec; font: 600 19px var(--font-head); text-anchor: middle; }
+.tri-label--side { text-anchor: start; fill: var(--muted); }
+.tri-label--accent { fill: var(--accent-hover); }
+.tri-small { fill: var(--text); font: 600 20px var(--font); }
+.triangle figcaption { color: var(--muted); font-size: .92rem; margin-top: .8rem; }
+.tri-label--sub { font-weight: 500; font-size: 16px; }

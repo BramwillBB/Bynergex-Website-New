@@ -1,0 +1,493 @@
+<!doctype html>
+<html lang="en-ZA">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Power Factor Correction South Africa: 2026 Guide | Bynergex</title>
+  <meta name="description" content="What power factor is, how Eskom's reactive energy charge and kVA demand charges penalise it, and how to correct it safely. With a worked example." />
+  <link rel="canonical" href="https://bynergex.com/blog/power-factor-correction-south-africa/" />
+  <meta name="robots" content="index, follow, max-image-preview:large" />
+  <meta name="theme-color" content="#0B1D3A" />
+  <meta name="geo.region" content="ZA-WC" />
+  <meta name="geo.placename" content="Cape Town" />
+  <meta name="geo.position" content="-33.9249;18.4241" />
+  <link rel="icon" type="image/png" href="/favicon.png" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Bynergex Consulting" />
+  <meta property="og:locale" content="en_ZA" />
+  <meta property="og:title" content="Power factor correction in South Africa: How to stop paying for power that does no work" />
+  <meta property="og:description" content="What power factor is, how Eskom's reactive energy charge and kVA demand charges penalise it, and how to correct it safely. With a worked example." />
+  <meta property="og:url" content="https://bynergex.com/blog/power-factor-correction-south-africa/" />
+  <meta property="og:image" content="https://bynergex.com/img/blog-pf-og.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="678" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Power factor correction in South Africa: How to stop paying for power that does no work" />
+  <meta name="twitter:description" content="What power factor is, how Eskom's reactive energy charge and kVA demand charges penalise it, and how to correct it safely. With a worked example." />
+  <meta name="twitter:image" content="https://bynergex.com/img/blog-pf-og.jpg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/src/style.css" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "BlogPosting",
+        "@id": "https://bynergex.com/blog/power-factor-correction-south-africa/#article",
+        "mainEntityOfPage": "https://bynergex.com/blog/power-factor-correction-south-africa/",
+        "headline": "Power factor correction in South Africa: How to stop paying for power that does no work",
+        "description": "What power factor is, how Eskom's reactive energy charge and kVA demand charges penalise it, and how to correct it safely. With a worked example.",
+        "image": [
+          "https://bynergex.com/img/material.jpg",
+          "https://bynergex.com/img/blog-pf-og.jpg"
+        ],
+        "datePublished": "2026-10-25",
+        "dateModified": "2026-10-25",
+        "inLanguage": "en-ZA",
+        "author": {
+          "@type": "Person",
+          "@id": "https://bynergex.com/#bramwill",
+          "name": "Bramwill Bruinders",
+          "jobTitle": "Professional Engineering Technologist (Pr. Tech. Eng.)",
+          "url": "https://bynergex.com/#about",
+          "sameAs": [
+            "https://www.linkedin.com/in/bramwillbruinders",
+            "https://bramwill.com"
+          ]
+        },
+        "publisher": {
+          "@type": "Organization",
+          "@id": "https://bynergex.com/#business",
+          "name": "Bynergex Consulting",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://bynergex.com/img/logo.png"
+          }
+        },
+        "keywords": [
+          "power factor correction",
+          "reactive energy charge",
+          "Eskom Megaflex",
+          "kVA demand charge",
+          "capacitor bank",
+          "harmonics",
+          "energy efficiency",
+          "South Africa"
+        ],
+        "about": [
+          {
+            "@type": "Thing",
+            "name": "Power factor"
+          },
+          {
+            "@type": "Thing",
+            "name": "Energy efficiency"
+          }
+        ]
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://bynergex.com/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Blog",
+            "item": "https://bynergex.com/blog/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Power factor correction",
+            "item": "https://bynergex.com/blog/power-factor-correction-south-africa/"
+          }
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "https://bynergex.com/blog/power-factor-correction-south-africa/#faq",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "What is a good power factor for a commercial or industrial site?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Aim for 0.97 to 0.99. Eskom charges reactive energy once it exceeds 30% of the kWh recorded in peak and standard periods, which is a power factor of 0.96 or less, and any tariff billed in kVA rewards every improvement. Avoid correcting to a leading power factor at light load."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "When does Eskom charge for reactive energy?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "On Megaflex, Miniflex and Ruraflex, during the high-demand season from 1 June to 31 August, for reactive energy above 30% of the kWh recorded in peak and standard periods. The 2026/27 Megaflex rate is 34.49c per kVArh, excluding VAT."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Can installing solar make my power factor worse?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. Grid-tied inverters usually supply real power at near-unity power factor, so the grid still supplies all the reactive power your motors need. The power factor measured at your meter can fall, and reactive charges can appear. Check it in the solar design and after commissioning."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Does power factor correction save kWh?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Only a little, through lower cable and transformer losses. Most of the saving comes from lower kVA demand charges and avoided reactive energy charges, which is why the business case depends on your tariff."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Why do harmonics matter when adding capacitors?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Variable speed drives, UPS systems and LED lighting create harmonic currents. A plain capacitor bank can resonate with the supply transformer and amplify them, damaging capacitors and other equipment. Measure harmonics first and use a detuned bank or active filter where needed."
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+  <meta property="article:published_time" content="2026-10-25" />
+  <meta property="article:author" content="https://www.linkedin.com/in/bramwillbruinders" />
+</head>
+<body class="page-sub">
+  <header class="site-header">
+    <a class="brand" href="/" aria-label="Bynergex Consulting home">
+      <img src="/img/logo-reversed.png" alt="Bynergex Consulting" width="1464" height="321" />
+    </a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
+    <nav class="nav" id="site-nav" aria-label="Main">
+      <a href="/energy-audit/">Energy audits</a>
+      <a href="/electrical-compliance-assurance/">Compliance assurance</a>
+      <a href="/sseg-commissioning/">SSEG commissioning</a>
+      <a href="/blog/" aria-current="page">Blog</a>
+      <a href="/#about">About</a>
+      <a class="btn btn--small" href="#contact">Get in touch</a>
+    </nav>
+  </header>
+
+  <main id="page">
+    <article class="post">
+      <header class="post-hero">
+        <img class="page-hero__bg" src="/img/material.jpg" alt="An open medium-voltage switchgear panel with copper busbars" fetchpriority="high" width="1600" height="905" />
+        <div class="page-hero__copy">
+          <nav class="crumbs" aria-label="Breadcrumb"><a href="/">Home</a><span aria-hidden="true">/</span><a href="/blog/">Blog</a><span aria-hidden="true">/</span><span aria-current="page">Power factor correction</span></nav>
+          <p class="kicker">Energy efficiency · 2026 guide</p>
+          <h1>Power factor correction in South Africa: How to stop paying for power that does no work.</h1>
+          <p class="post-meta">By <a href="/#about">Bramwill Bruinders, Pr. Tech. Eng.</a> · <time datetime="2026-10-25">25 October 2026</time> · 9 minute read</p>
+        </div>
+      </header>
+
+      <div class="post-body">
+        <aside class="takeaways" aria-label="Key takeaways">
+          <h2>In short</h2>
+          <ul>
+            <li>A poor power factor makes your site draw more current, and more kVA, for the same useful work.</li>
+            <li>Eskom charges for reactive energy above 30% of your kWh (a power factor of 0.96 or less) from 1 June to 31 August, at 34.49c per kVArh on Megaflex in 2026/27.</li>
+            <li>Any tariff that bills demand in kVA, including the City of Cape Town's large-user tariffs, charges you every month for a low power factor.</li>
+            <li>Installing solar can make the power factor at your meter worse, not better.</li>
+            <li>Correct it with measurements first: A capacitor bank on a site full of drives and electronics can cause more trouble than it solves.</li>
+          </ul>
+        </aside>
+
+        <p>Most electricity bills for commercial and industrial sites carry a cost that has nothing to do with how much work the site does. It comes from current that flows back and forth to magnetise motors and transformers, loads up your cables and transformer, and shows up on the account as reactive energy or inflated kVA demand.</p>
+        <p>That cost is power factor. It is one of the most common findings in an energy audit, and one of the fastest to pay back. On one site I was responsible for, correcting the power factor from 0.91 to 0.99 eliminated the reactive energy penalties entirely. This guide explains what power factor is, what it costs under 2026/27 tariffs, and how to correct it without creating new problems.</p>
+
+        <h2>What power factor actually is</h2>
+        <p>Your site draws two kinds of power. <strong>Real power (kW)</strong> does useful work: It turns motors, runs compressors and lights the building. <strong>Reactive power (kVAr)</strong> does no work, but motors, transformers and fluorescent ballasts need it to build their magnetic fields. Together they make up <strong>apparent power (kVA)</strong>, which is what your supply, cables and transformer actually have to carry.</p>
+
+        <figure class="triangle" aria-labelledby="tri-cap">
+          <svg viewBox="0 0 640 300" role="img" aria-label="The power triangle. Real power in kW along the bottom, reactive power in kVAr up the side, and apparent power in kVA along the long diagonal.">
+            <polygon points="70,250 560,250 560,60" class="tri-fill" />
+            <line x1="70" y1="250" x2="560" y2="250" class="tri-kw" />
+            <line x1="560" y1="250" x2="560" y2="60" class="tri-kvar" />
+            <line x1="70" y1="250" x2="560" y2="60" class="tri-kva" />
+            <path d="M 150 250 A 80 80 0 0 0 144 220" class="tri-angle" />
+            <text x="300" y="285" class="tri-label">Real power, kW (does the work)</text>
+            <text x="575" y="160" class="tri-label tri-label--side">kVAr</text>
+            <text x="195" y="100" class="tri-label tri-label--accent">Apparent power, kVA</text>
+            <text x="195" y="126" class="tri-label tri-label--accent tri-label--sub">(what you pay capacity for)</text>
+            <text x="160" y="238" class="tri-small">φ</text>
+          </svg>
+          <figcaption id="tri-cap">Power factor = kW ÷ kVA. The more reactive power a site draws, the longer the kVA side becomes for the same kW.</figcaption>
+        </figure>
+
+        <p>Power factor is simply the ratio of real to apparent power, <strong>kW ÷ kVA</strong>. At 1.0, every amp does useful work. At 0.85, a site doing 500 kW of work draws about 588 kVA, so nearly 18% more current flows through every cable, switch and transformer than the work requires.</p>
+
+        <h3>What drags it down</h3>
+        <ul>
+          <li><strong>Induction motors,</strong> especially oversized or lightly loaded ones running pumps, fans and compressors</li>
+          <li><strong>Transformers</strong> that are lightly loaded for much of the day</li>
+          <li><strong>Older lighting</strong> with magnetic ballasts</li>
+          <li><strong>Welding sets and induction furnaces</strong> on industrial sites</li>
+          <li><strong>Failed capacitor steps</strong> in an existing correction bank that nobody has checked for years</li>
+        </ul>
+
+        <h2>What it costs you in 2026/27</h2>
+        <h3>Eskom's reactive energy charge</h3>
+        <p>On Eskom's Megaflex, Miniflex and Ruraflex tariffs, reactive energy is charged when it exceeds 30% of the kWh recorded in peak and standard periods, which is equivalent to a power factor of 0.96 or less. On Megaflex, the excess is worked out per 30-minute period and added up for the month. The charge only applies in the high-demand season, from 1 June to 31 August, and the 2026/27 Megaflex rate is 34.49c per kVArh, excluding VAT.</p>
+        <h3>kVA demand and network charges</h3>
+        <p>Many commercial and industrial tariffs bill capacity in kVA rather than kW, and that charge applies every month, not only in winter. The City of Cape Town's large-user tariffs, for example, include a demand charge and a network capacity charge per kVA. Its 2026/27 network capacity charge for low-voltage large users is R39.00 per kVA, excluding VAT, before the demand charge itself. Every kVA you don't need to draw is money saved month after month.</p>
+        <h3>The costs that never appear as a line item</h3>
+        <ul>
+          <li><strong>Losses:</strong> Cable and transformer losses rise with the square of the current, so excess current turns paid-for energy into heat.</li>
+          <li><strong>Capacity:</strong> A site at 0.85 may think it needs a bigger transformer or supply upgrade when correction would free up the headroom it already has.</li>
+          <li><strong>Voltage:</strong> Higher current means more voltage drop at the far end of long feeders, which stresses motors and electronics.</li>
+        </ul>
+
+        <h2>A worked example</h2>
+        <p>Consider a site with a 500 kW peak load at a power factor of 0.85, corrected to 0.98.</p>
+        <div class="table-wrap">
+          <table class="example">
+            <caption>Illustrative figures, not a quote</caption>
+            <tbody>
+              <tr><th scope="row">Demand before correction</th><td>500 kW ÷ 0.85 ≈ 588 kVA</td></tr>
+              <tr><th scope="row">Demand after correction</th><td>500 kW ÷ 0.98 ≈ 510 kVA</td></tr>
+              <tr><th scope="row">kVA you stop paying for</th><td>≈ 78 kVA every month</td></tr>
+              <tr><th scope="row">At an assumed R250 per kVA per month</th><td>≈ R19,500 a month, about R234,000 a year</td></tr>
+              <tr><th scope="row">Eskom Megaflex winter example</th><td>200,000 kWh in peak and standard periods at 0.85 draws about 124,000 kVArh. The free allowance is 60,000, so about 64,000 kVArh × R0.3449 ≈ R22,000 a month in June, July and August</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p>Your tariff, load and hours will differ, and the figures above assume the power factor is low at the moment your demand peaks. That's exactly what a measurement confirms. The point is the size of the number: Correction equipment often pays for itself well within the first couple of years.</p>
+
+        <h2>The solar trap: Why power factor can get worse after installing PV</h2>
+        <p>Most grid-tied inverters supply real power at or near unity power factor. When the PV system covers part of your kW, the grid still supplies all of the kVAr your motors need. The ratio at your meter shifts, so the measured power factor falls, sometimes enough to trigger reactive energy charges you never paid before.</p>
+        <p>This is fixable. Some inverters can supply reactive power within the limits the utility allows, and a correction bank can be resized for the new load profile. The point is to check power factor as part of any solar design, and again after commissioning, rather than discovering it on the first winter bill.</p>
+
+        <h2>How to correct it, safely</h2>
+        <ol>
+          <li><strong>Measure first.</strong> Log power factor, kVAr demand and harmonic distortion at the main incomer for at least a week, so the design reflects real loads, nights and weekends.</li>
+          <li><strong>Choose the right type of correction.</strong> Fixed capacitors at large motors suit steady loads. An automatic capacitor bank at the main board switches steps in and out as the load changes. Sites with fast-changing loads may need an active filter or static compensator.</li>
+          <li><strong>Check for harmonics before adding capacitors.</strong> Variable speed drives, UPS systems and LED lighting create harmonic currents. A plain capacitor bank can resonate with the transformer and amplify them. On these sites, use a detuned bank, where each capacitor step has a reactor that moves the resonance safely away from the harmonics present. Manufacturers commonly offer 7% and 14% detuning; the right choice depends on the measured harmonic spectrum.</li>
+          <li><strong>Don't overcorrect.</strong> Aim for about 0.97 to 0.99. A leading power factor at light load can raise voltages and cause its own problems, so the controller needs sensible settings and enough steps.</li>
+          <li><strong>Maintain it.</strong> Capacitors lose capacitance with age and heat, and contactors wear. Check the bank's steps, temperatures and controller alarms at least once a year, and after any major change to the site's loads.</li>
+        </ol>
+
+        <h2>Questions to ask a power factor correction supplier</h2>
+        <ul class="checklist">
+          <li>Was the bank sized on logged measurements at our incomer, or on our bills?</li>
+          <li>What harmonic distortion did you measure, and is the bank detuned to suit it?</li>
+          <li>What power factor will we reach at peak demand and at light load?</li>
+          <li>How many steps does the bank have, and how does the controller prevent overcorrection?</li>
+          <li>Have you allowed for our solar system, existing or planned?</li>
+          <li>What will the bank save per month, and how will we verify it on the bill?</li>
+          <li>What maintenance does it need, and who will do it?</li>
+        </ul>
+
+        <div class="post-cta">
+          <h2>Find out what your power factor is costing you</h2>
+          <p>Power factor is checked in every Bynergex Energy Loss Audit: We log your incomer, read your tariff, and tell you what correction is worth before you spend anything. We don't sell the equipment, so the advice is independent.</p>
+          <div class="beat__actions">
+            <a class="btn" href="#contact" data-service="energy">Book an Energy Loss Audit <span aria-hidden="true">→</span></a>
+            <a class="textlink" href="/energy-audit/">How the audit works</a>
+          </div>
+        </div>
+
+        <section class="magnet" id="download" aria-labelledby="magnet-title">
+          <div class="magnet__cover" aria-hidden="true"><img src="/img/material.jpg" alt="" loading="lazy" width="1600" height="905" /><span>Free PDF</span></div>
+          <div class="magnet__body">
+            <p class="kicker">Free download</p>
+            <h2 id="magnet-title">Get the Power Factor Self-Check</h2>
+            <p>A four-page worksheet: Work out your power factor from your bill, estimate what it costs in kVA demand and Eskom winter reactive charges, check your site and any existing capacitor bank, and the questions to ask a correction supplier. Plus the full article as a PDF to share with your team.</p>
+            <form class="magnet-form" novalidate>
+              <input type="hidden" name="post" value="power-factor-correction-south-africa" />
+          <input type="hidden" name="t" value="" />
+          <div class="enquiry__trap" aria-hidden="true"><label>Leave this empty <input name="website" tabindex="-1" autocomplete="off" /></label></div>
+              <label class="field"><span>Name</span><input name="name" autocomplete="name" required /></label>
+              <label class="field"><span>Work email</span><input name="email" type="email" autocomplete="email" required /></label>
+              <label class="field"><span>Company (optional)</span><input name="company" autocomplete="organization" /></label>
+              <label class="field"><span>Role (optional)</span><input name="role" autocomplete="organization-title" placeholder="For example: Facilities manager" /></label>
+              <label class="check"><input type="checkbox" name="consent" value="yes" required /> <span>Email me the download. I agree to the <a href="/privacy/">privacy policy</a>.</span></label>
+              <label class="check"><input type="checkbox" name="updates" value="yes" /> <span>Also send me new guides now and then (optional, unsubscribe any time)</span></label>
+              <div class="enquiry__send"><button class="btn" type="submit">Email me the PDF <span aria-hidden="true">→</span></button></div>
+              <p class="form-status" role="status" aria-live="polite"></p>
+            </form>
+          </div>
+        </section>
+
+        <section class="faq faq--post" id="faq">
+          <h2>Frequently asked questions</h2>
+          <div class="faq__list">
+            <details>
+              <summary>What is a good power factor for a commercial or industrial site?</summary>
+              <p>Aim for 0.97 to 0.99. Eskom charges reactive energy once it exceeds 30% of the kWh recorded in peak and standard periods, which is a power factor of 0.96 or less, and any tariff billed in kVA rewards every improvement. Avoid correcting to a leading power factor at light load.</p>
+            </details>
+            <details>
+              <summary>When does Eskom charge for reactive energy?</summary>
+              <p>On Megaflex, Miniflex and Ruraflex, during the high-demand season from 1 June to 31 August, for reactive energy above 30% of the kWh recorded in peak and standard periods. The 2026/27 Megaflex rate is 34.49c per kVArh, excluding VAT.</p>
+            </details>
+            <details>
+              <summary>Can installing solar make my power factor worse?</summary>
+              <p>Yes. Grid-tied inverters usually supply real power at near-unity power factor, so the grid still supplies all the reactive power your motors need. The power factor measured at your meter can fall, and reactive charges can appear. Check it in the solar design and after commissioning.</p>
+            </details>
+            <details>
+              <summary>Does power factor correction save kWh?</summary>
+              <p>Only a little, through lower cable and transformer losses. Most of the saving comes from lower kVA demand charges and avoided reactive energy charges, which is why the business case depends on your tariff.</p>
+            </details>
+            <details>
+              <summary>Why do harmonics matter when adding capacitors?</summary>
+              <p>Variable speed drives, UPS systems and LED lighting create harmonic currents. A plain capacitor bank can resonate with the supply transformer and amplify them, damaging capacitors and other equipment. Measure harmonics first and use a detuned bank or active filter where needed.</p>
+            </details>
+          </div>
+        </section>
+
+        <section class="sources" aria-labelledby="sources-title">
+          <h2 id="sources-title">Sources</h2>
+          <ol>
+            <li><a href="https://www.eskom.co.za/distribution/wp-content/uploads/2026/07/Eskom-Tariff-booklet_Final.pdf" rel="noopener" target="_blank">Eskom: Tariffs and Charges Booklet 2026/27 (reactive energy charge definition, high-demand season and Megaflex rate)</a></li>
+            <li><a href="https://www.terawatt.co.za/reactive-energy-charge-power-factor/" rel="noopener" target="_blank">Terawatt Energy: Reactive energy charge, the winter-only line on your bill (3 August 2026)</a></li>
+            <li><a href="https://www.capetown.gov.za/media/32ojyjgo/budget-2026-27_ann04.pdf" rel="noopener" target="_blank">City of Cape Town: 2026/27 consumptive tariffs, Annexure 4 (large-user network capacity charge)</a></li>
+            <li><a href="https://powerside.com/application-note/safeguard-against-resonance-with-low-voltage-detuned-capacitor-banks/" rel="noopener" target="_blank">Powerside: Safeguard against resonance with low-voltage detuned capacitor banks</a></li>
+          </ol>
+        </section>
+
+        <aside class="author" aria-label="About the author">
+          <img src="/favicon.png" alt="" width="64" height="64" loading="lazy" />
+          <div>
+            <p class="author__name">Bramwill Bruinders, Pr. Tech. Eng.</p>
+            <p>Principal of Bynergex Consulting. ECSA-registered Professional Engineering Technologist with 26 years in power systems, industrial automation, SCADA and critical infrastructure.</p>
+            <p><a href="https://www.linkedin.com/in/bramwillbruinders" target="_blank" rel="noopener">LinkedIn</a> · <a href="https://bramwill.com" target="_blank" rel="noopener">bramwill.com</a></p>
+          </div>
+        </aside>
+
+        <section class="engage" id="questions" data-post="power-factor-correction-south-africa" aria-label="Rate and discuss this article">
+          <div class="rate">
+            <h2>How useful was this article?</h2>
+            <div class="stars" role="radiogroup" aria-label="Rate this article from 1 to 5">
+              <button type="button" class="star" data-stars="1" role="radio" aria-checked="false" aria-label="1 out of 5"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.8l2.8 5.9 6.4.8-4.7 4.4 1.2 6.4L12 17.2l-5.7 3.1 1.2-6.4L2.8 9.5l6.4-.8z"/></svg></button>
+              <button type="button" class="star" data-stars="2" role="radio" aria-checked="false" aria-label="2 out of 5"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.8l2.8 5.9 6.4.8-4.7 4.4 1.2 6.4L12 17.2l-5.7 3.1 1.2-6.4L2.8 9.5l6.4-.8z"/></svg></button>
+              <button type="button" class="star" data-stars="3" role="radio" aria-checked="false" aria-label="3 out of 5"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.8l2.8 5.9 6.4.8-4.7 4.4 1.2 6.4L12 17.2l-5.7 3.1 1.2-6.4L2.8 9.5l6.4-.8z"/></svg></button>
+              <button type="button" class="star" data-stars="4" role="radio" aria-checked="false" aria-label="4 out of 5"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.8l2.8 5.9 6.4.8-4.7 4.4 1.2 6.4L12 17.2l-5.7 3.1 1.2-6.4L2.8 9.5l6.4-.8z"/></svg></button>
+              <button type="button" class="star" data-stars="5" role="radio" aria-checked="false" aria-label="5 out of 5"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.8l2.8 5.9 6.4.8-4.7 4.4 1.2 6.4L12 17.2l-5.7 3.1 1.2-6.4L2.8 9.5l6.4-.8z"/></svg></button>
+            </div>
+            <p class="rate__summary" aria-live="polite"></p>
+          </div>
+
+          <div class="ask">
+            <h2>Ask the engineer</h2>
+            <p>Have a question about this topic, or about your own site? Ask it here. Bramwill reads every question and answers the useful ones on this page. We publish your name and question, never your email address.</p>
+            <div class="qa-list" aria-live="polite"></div>
+            <form class="ask-form" novalidate>
+              <input type="hidden" name="post" value="power-factor-correction-south-africa" />
+          <input type="hidden" name="t" value="" />
+          <div class="enquiry__trap" aria-hidden="true"><label>Leave this empty <input name="website" tabindex="-1" autocomplete="off" /></label></div>
+              <label class="field"><span>Name</span><input name="name" autocomplete="name" required /></label>
+              <label class="field"><span>Email (not published)</span><input name="email" type="email" autocomplete="email" required /></label>
+              <label class="field field--wide"><span>Your question</span><textarea name="question" rows="4" required></textarea></label>
+              <label class="check field--wide"><input type="checkbox" name="consent" value="yes" required /> <span>If my question is answered, my name and question may be published with the answer. I agree to the <a href="/privacy/">privacy policy</a>.</span></label>
+              <div class="enquiry__send"><button class="btn" type="submit">Send question <span aria-hidden="true">→</span></button></div>
+              <p class="form-status" role="status" aria-live="polite"></p>
+            </form>
+          </div>
+        </section>
+      </div>
+    </article>
+
+    <!-- CTA + footer: opaque, covers the film -->
+    <div class="stage-cover">
+      <section id="contact" class="contact">
+        <div class="contact__head">
+          <h2>Find out where your electricity goes.</h2>
+          <p>Tell us where things stand. If it's a fit, we'll reply with a proposed written scope. If it isn't, we'll say so and, where we can, point you to someone who is.</p>
+          <p class="contact__direct">Prefer to talk first? Call <a href="tel:+27662522655">+27 66 252 2655</a> or email <a href="mailto:consultant@bynergex.com">consultant@bynergex.com</a>.</p>
+        </div>
+
+        <div class="ways">
+          <a class="way way--feature" href="/energy-audit/">
+            <h3>Energy Loss Audit</h3>
+            <p>Bills and tariff review, load logging, load flow and loss analysis, a feasibility study and a costed savings plan.</p>
+          </a>
+          <a class="way" href="/electrical-compliance-assurance/">
+            <h3>Compliance and project assurance</h3>
+            <p>One stage or the whole lifecycle: Requirements, tender review, delivery evidence and acceptance.</p>
+          </a>
+          <a class="way" href="/sseg-commissioning/">
+            <h3>SSEG commissioning</h3>
+            <p>Document check, on-site tests and a signed commissioning report for homes, businesses and industrial sites.</p>
+          </a>
+          <p class="ways__note">Every engagement is quoted on a written scope after a short conversation. No scope, no invoice.</p>
+        </div>
+
+        <form class="enquiry" id="enquiry" action="/api/enquiry.php" method="post" novalidate>
+          <input type="hidden" name="t" value="" />
+          <div class="enquiry__trap" aria-hidden="true"><label>Leave this empty <input name="website" tabindex="-1" autocomplete="off" /></label></div>
+          <fieldset class="enquiry__choice">
+            <legend>What do you need?</legend>
+            <label><input type="radio" name="service" value="Energy loss audit" checked /> <span>Energy loss audit</span></label>
+            <label><input type="radio" name="service" value="Project assurance" /> <span>Compliance assurance</span></label>
+            <label><input type="radio" name="service" value="SSEG commissioning" /> <span>SSEG commissioning</span></label>
+          </fieldset>
+          <label class="field">
+            <span>Where do things stand?</span>
+            <select name="stage">
+              <option>High electricity bills, want to know why</option>
+              <option>Planning solar, want to cut waste first</option>
+              <option>Solar or battery system installed, awaiting sign-off</option>
+              <option>Pre-appointment</option>
+              <option>Design or specification</option>
+              <option>Construction and delivery</option>
+              <option>Commissioning and acceptance</option>
+              <option>In operation</option>
+            </select>
+          </label>
+          <label class="field field--wide">
+            <span>What do you need help with?</span>
+            <textarea name="decision" rows="4" required placeholder="For example: Our electricity bill has risen 30% in two years and we want to know where it goes before we install solar."></textarea>
+          </label>
+          <label class="field"><span>Name</span><input name="name" autocomplete="name" required /></label>
+          <label class="field"><span>Email</span><input name="email" type="email" autocomplete="email" required /></label>
+          <label class="field"><span>Company or site (optional)</span><input name="company" autocomplete="organization" /></label>
+          <label class="field"><span>Phone (optional)</span><input name="phone" type="tel" autocomplete="tel" /></label>
+          <div class="enquiry__send">
+            <button class="btn" type="submit">Send enquiry <span aria-hidden="true">→</span></button>
+            <p class="enquiry__hint">Goes straight to consultant@bynergex.com. We use your details only to reply to you (<a href="/privacy/">privacy policy</a>).</p>
+          </div>
+          <p class="enquiry__status" role="status" aria-live="polite"></p>
+        </form>
+      </section>
+
+      <footer class="footer">
+        <img class="footer__logo" src="/img/logo-reversed.png" alt="Bynergex Consulting" width="1464" height="321" loading="lazy" />
+        <div class="footer__cols">
+          <div>
+            <h3>Contact</h3>
+            <p><a href="mailto:consultant@bynergex.com">consultant@bynergex.com</a></p>
+            <p><a href="tel:+27662522655">+27 66 252 2655</a></p>
+            <p>Cape Town, Western Cape<br />Available across South Africa</p>
+          </div>
+          <div>
+            <h3>Services</h3>
+            <p><a href="/energy-audit/">Energy audits</a></p>
+            <p><a href="/electrical-compliance-assurance/">Electrical compliance assurance</a></p>
+            <p><a href="/sseg-commissioning/">SSEG commissioning, Cape Town</a></p>
+            <p><a href="/blog/">Blog</a></p>
+          </div>
+          <div>
+            <h3>Principal</h3>
+            <p>Bramwill Bruinders<br />ECSA Registered Pr. Tech. Eng.</p>
+            <p><a href="https://bramwill.com" target="_blank" rel="noopener">bramwill.com</a></p>
+            <p><a href="https://www.linkedin.com/in/bramwillbruinders" target="_blank" rel="noopener">LinkedIn</a></p>
+          </div>
+        </div>
+        <p class="footer__legal">© 2026 Bynergex Consulting (Pty) Ltd. Advisory reviews are not statutory approvals or Certificates of Compliance. <a href="/privacy/">Privacy policy</a></p>
+      </footer>
+    </div>
+  </main>
+
+  <script type="module" src="/src/page.js"></script>
+</body>
+</html>

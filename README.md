@@ -43,7 +43,17 @@ npx vite preview               # check the build over HTTP (never open dist/ via
 - `public/api/_lib.php`: Shared helpers and the `POSTS` list. Add every new post
   there with its download files.
 - Private data (questions, ratings, leads, the signing secret) lives in
-  `bynergex-private/` beside `public_html` on Hostinger, so deploys never touch it.
+  `domains/bynergex.com/bynergex-private/` beside `public_html` on Hostinger,
+  so deploys never touch it. `GET /api/comments.php?action=health` confirms it
+  is writable, shows when it was created, and whether SMTP is configured.
+- Email: If `bynergex-private/smtp.json` exists
+  (`{"host": "smtp.hostinger.com", "port": 465, "user": "consultant@bynergex.com", "pass": "…"}`),
+  all site mail goes through the real mailbox over authenticated SMTP and is
+  DKIM-signed, so it reaches Gmail and other outside inboxes. Without it, PHP
+  `mail()` is used, which reliably reaches the practice's own inbox only. The
+  password lives only in that private file, never in this repository.
+- After a download request, readers get the download buttons on the page
+  immediately; the email is a copy.
 - PDFs live in `public/downloads/` with random filename suffixes, are
   `noindex`, and are excluded in `robots.txt`. Their sources and the Chrome
   render script are in `copy/pdf-source/`.

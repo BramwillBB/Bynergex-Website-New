@@ -28,6 +28,14 @@ const POSTS = [
             'The full article (PDF)' => '/downloads/sseg-registration-guide-article-e2c704.pdf',
         ],
     ],
+    'power-factor-correction-south-africa' => [
+        'title' => 'Power factor correction in South Africa: How to stop paying for power that does no work',
+        'resource' => 'Power Factor Self-Check',
+        'files' => [
+            'Power Factor Self-Check' => '/downloads/power-factor-self-check-9d2b61.pdf',
+            'The full article (PDF)' => '/downloads/power-factor-correction-article-5e8a37.pdf',
+        ],
+    ],
 ];
 
 function reply(int $status, array $body): void {
