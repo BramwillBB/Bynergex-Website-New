@@ -587,3 +587,26 @@ body.video-failed .bg-video { display: none; }
 .tri-small { fill: var(--text); font: 600 20px var(--font); }
 .triangle figcaption { color: var(--muted); font-size: .92rem; margin-top: .8rem; }
 .tri-label--sub { font-weight: 500; font-size: 16px; }
+
+/* Image library (2026-10-25): the waste gallery, review shots, and a picture per SSEG tab */
+.waste-shots { display: grid; grid-template-columns: 1.6fr 1fr; grid-template-rows: auto 1fr 1fr; gap: 1.2rem 1.6rem; padding: 16vh var(--gutter); background: var(--bg); }
+.waste-shots__head { grid-column: 1 / -1; max-width: 46rem; margin-bottom: 1.2rem; }
+.waste-shots__head h2 { font-size: clamp(2rem, 4vw, 3.4rem); font-weight: 800; }
+.waste-shots figure { margin: 0; display: flex; flex-direction: column; min-width: 0; }
+.waste-shots img { width: 100%; flex: 1; min-height: 0; object-fit: cover; border-radius: var(--radius); }
+.waste-shots__main { grid-row: 2 / span 2; }
+.waste-shots__main img { aspect-ratio: 4 / 3; }
+.waste-shots figure:not(.waste-shots__main) img { aspect-ratio: 16 / 9; }
+.waste-shots figcaption, .shots figcaption { color: var(--muted); font-size: .95rem; margin-top: .7rem; }
+.shots { display: grid; grid-template-columns: 1.35fr 1fr; gap: 1.6rem; margin: 2rem 0 1rem; align-items: end; }
+.shots figure { margin: 0; min-width: 0; }
+.shots img { width: 100%; height: auto; aspect-ratio: 16 / 10; object-fit: cover; border-radius: var(--radius); }
+.shots figure:last-child img { aspect-ratio: 4 / 3; }
+.seg__img { width: 100%; height: auto; aspect-ratio: 16 / 10; object-fit: cover; border-radius: var(--radius); margin-bottom: 1.4rem; display: block; }
+@media (max-width: 768px) {
+  .waste-shots { grid-template-columns: 1fr; grid-template-rows: none; padding: 12vh 16px; }
+  .waste-shots__main { grid-row: auto; }
+  .waste-shots__main img { aspect-ratio: 4 / 3; }
+  .shots { grid-template-columns: 1fr; }
+  .shots figure:last-child img { aspect-ratio: 16 / 10; }
+}
