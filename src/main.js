@@ -23,7 +23,7 @@ function scrubVideo() { requestSeek(storyProgress() * (bgVideo.duration - 0.05))
 async function initVideo() {
   if (STATIC_HERO.matches) return;                 // phones / reduced motion: poster only
   try {
-    const res = await fetch("film.mp4");
+    const res = await fetch("film-substation.mp4");
     if (!res.ok) throw new Error(res.status);
     bgVideo.src = URL.createObjectURL(await res.blob());
     bgVideo.load();

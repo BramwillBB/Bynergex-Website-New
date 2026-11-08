@@ -36,6 +36,14 @@ const POSTS = [
             'The full article (PDF)' => '/downloads/power-factor-correction-article-5e8a37.pdf',
         ],
     ],
+    'maximum-demand-charges-south-africa' => [
+        'title' => 'Maximum demand charges in South Africa: How to cut your kVA peak in 2026/27',
+        'resource' => 'Demand Peak Worksheet',
+        'files' => [
+            'Demand Peak Worksheet' => '/downloads/demand-peak-worksheet-4f2c81.pdf',
+            'The full article (PDF)' => '/downloads/maximum-demand-charges-article-b7e391.pdf',
+        ],
+    ],
 ];
 
 function reply(int $status, array $body): void {
