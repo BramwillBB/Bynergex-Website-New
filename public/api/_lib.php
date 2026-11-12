@@ -44,6 +44,14 @@ const POSTS = [
             'The full article (PDF)' => '/downloads/maximum-demand-charges-article-b7e391.pdf',
         ],
     ],
+    'energy-efficiency-wine-industry-south-africa' => [
+        'title' => 'Energy efficiency in South African wineries: Seven challenges, and the savings cellars already make',
+        'resource' => 'Winery Energy Worksheet',
+        'files' => [
+            'Winery Energy Worksheet' => '/downloads/winery-energy-worksheet-8d3e57.pdf',
+            'The full article (PDF)' => '/downloads/winery-energy-efficiency-article-c61a94.pdf',
+        ],
+    ],
 ];
 
 function reply(int $status, array $body): void {

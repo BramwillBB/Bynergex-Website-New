@@ -473,6 +473,7 @@ body.video-failed .bg-video { display: none; }
 .post-body li::marker { color: var(--accent-hover); }
 .post-body strong { color: var(--text); }
 .post-body a:not(.btn) { color: var(--accent-hover); }
+.post-body p a:not(.btn):not(.textlink), .post-body li a:not(.btn):not(.textlink) { text-decoration: underline; text-underline-offset: 2px; }
 .post-body .loadprofile { margin: 2.4rem -2rem; }
 .takeaways { background: var(--surface); border-left: 4px solid var(--accent); border-radius: var(--radius); padding: 1.6rem 1.8rem; margin-bottom: 2.6rem; }
 .takeaways h2 { font-size: 1.2rem !important; margin: 0 0 .8rem !important; }
