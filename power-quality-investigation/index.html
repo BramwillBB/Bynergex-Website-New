@@ -28,7 +28,9 @@
   <meta name="twitter:image" content="https://bynergex.com/img/og-site.jpg" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@500;600;700;800&display=swap" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@500;600;700;800&display=swap" rel="stylesheet" media="print" onload="this.media='all'" />
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@500;600;700;800&display=swap" rel="stylesheet" /></noscript>
   <link rel="stylesheet" href="/src/style.css" />
   <script type="application/ld+json">
   {
@@ -68,7 +70,7 @@
 <body class="page-sub page-svc">
   <header class="site-header">
     <a class="brand" href="/" aria-label="Bynergex Consulting home">
-      <img src="/img/logo-reversed.png" alt="Bynergex Consulting" width="1464" height="321" />
+      <img src="/img/logo-reversed-366.png" srcset="/img/logo-reversed-366.png 1x, /img/logo-reversed-732.png 2x" alt="Bynergex Consulting" width="366" height="80" />
     </a>
     <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
     <nav class="nav" id="site-nav" aria-label="Main">
@@ -229,7 +231,7 @@
       </section>
 
       <footer class="footer">
-        <img class="footer__logo" src="/img/logo-reversed.png" alt="Bynergex Consulting" width="1464" height="321" loading="lazy" />
+        <img class="footer__logo" src="/img/logo-reversed-366.png" srcset="/img/logo-reversed-366.png 1x, /img/logo-reversed-732.png 2x" alt="Bynergex Consulting" width="366" height="80" loading="lazy" />
         <div class="footer__cols">
           <div>
             <h3>Contact</h3>

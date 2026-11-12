@@ -686,3 +686,5 @@ body.video-failed .bg-video { display: none; }
   .svc-sec { padding: 9vh 16px; }
   .svc-steps { grid-template-columns: minmax(0, 1fr); }
 }
+.svc-sec a:not(.btn):not(.textlink), .page-svc .faq details a { color: var(--accent-hover); text-decoration: underline; text-underline-offset: 3px; }   /* links in text need more than colour */
+.footer__legal a, .enquiry__hint a, .contact__direct a { text-decoration: underline; text-underline-offset: 3px; }   /* links inside sentences need more than colour */
