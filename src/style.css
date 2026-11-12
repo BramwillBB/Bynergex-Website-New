@@ -613,3 +613,76 @@ body.video-failed .bg-video { display: none; }
   .shots { grid-template-columns: 1fr; }
   .shots figure:last-child img { aspect-ratio: 16 / 10; }
 }
+
+/* ---------- text-only service pages (energy audit, power quality investigation): no photos, no motion ---------- */
+.page-svc .kicker { color: var(--accent-hover); }                     /* AA contrast for small accent text on navy */
+.page-svc .btn { background: #c8441c; }                              /* darker burnt orange: white text passes AA */
+.page-svc .btn:hover { background: #b33c18; }
+.svc-hero { padding: calc(14vh + 40px) var(--gutter) 10vh; background: linear-gradient(180deg, var(--bg-deep), var(--bg)); border-bottom: 1px solid var(--line); }
+.svc-hero__copy { max-width: 50rem; }
+.svc-hero h1 { font-size: clamp(2.4rem, 5vw, 4.2rem); }
+.svc-hero .svc-sub { font-family: var(--font-head); font-weight: 600; font-size: clamp(1.2rem, 2vw, 1.55rem); line-height: 1.35; color: var(--text); max-width: 42rem; margin: 0 0 1.2rem; }
+.svc-hero p:not(.svc-sub):not(.kicker) { color: #cbd5e1; font-size: 1.08rem; max-width: 42rem; }
+.svc-sec { padding: 11vh var(--gutter); }
+.svc-sec--band { background: var(--bg-deep); border-block: 1px solid var(--line); }
+.svc-sec h2 { font-size: clamp(1.7rem, 3vw, 2.6rem); max-width: 48rem; }
+.svc-sec p, .svc-sec li, .svc-sec td { color: #cbd5e1; font-size: 1.05rem; }
+.svc-sec strong { color: var(--text); }
+.svc-sec a:not(.btn):not(.textlink) { color: var(--accent-hover); }
+.svc-intro { max-width: 46rem; margin-bottom: 2.2rem; }
+.svc-split { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: clamp(1.5rem, 5vw, 5rem); align-items: start; }
+.svc-split p { max-width: 44rem; }
+.svc-cols { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: clamp(1.5rem, 4vw, 4rem); }
+.svc-cols h3 { font-size: 1.25rem; margin-bottom: 1rem; }
+/* numbered list with the number in its own column */
+.svc-num { list-style: none; counter-reset: n; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 3rem; }
+.svc-num > li { counter-increment: n; position: relative; padding: 1.1rem 0 1.1rem 2.6rem; border-top: 1px solid var(--line-soft); }
+.svc-num > li::before { content: counter(n); position: absolute; left: 0; top: 1.05rem; font: 700 1.05rem var(--font-head); color: var(--accent-hover); }
+.svc-num--single { grid-template-columns: minmax(0, 1fr); max-width: 52rem; }
+/* simple tick and dash lists */
+.svc-ticks, .svc-dash { list-style: none; margin: 0; padding: 0; }
+.svc-ticks li, .svc-dash li { position: relative; padding: .7rem 0 .7rem 1.8rem; border-top: 1px solid var(--line-soft); }
+.svc-ticks li::before { content: "✓"; position: absolute; left: 0; color: var(--accent-hover); font-family: var(--font-head); font-weight: 700; }
+.svc-dash li::before { content: ""; position: absolute; left: 0; top: 1.35rem; width: 10px; height: 2px; background: var(--accent); }
+/* Pass / Watch / Action legend */
+.svc-ratings { display: flex; flex-wrap: wrap; gap: .6rem; margin: 1.2rem 0 0; padding: 0; list-style: none; }
+.svc-ratings li { font: 600 .95rem var(--font-head); color: var(--text); padding: .45rem .9rem; border: 1px solid var(--line-soft); border-left: 4px solid; border-radius: var(--radius); }
+.svc-ratings .r-pass { border-left-color: #4ade80; }
+.svc-ratings .r-watch { border-left-color: #facc15; }
+.svc-ratings .r-action { border-left-color: var(--accent-hover); }
+/* comparison table: scrolls inside its own frame on narrow screens */
+.svc-table { overflow-x: auto; border: 1px solid var(--line-soft); border-radius: var(--radius); }
+.svc-table:focus-visible { outline-offset: 2px; }
+.svc-table table { width: 100%; min-width: 640px; border-collapse: collapse; }
+.svc-table caption { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+.svc-table th, .svc-table td { text-align: left; vertical-align: top; padding: 1rem 1.1rem; border-top: 1px solid var(--line-soft); font-size: 1rem; }
+.svc-table thead th { border-top: 0; background: var(--surface); font-family: var(--font-head); font-weight: 700; color: var(--text); font-size: 1.02rem; }
+.svc-table tbody th { font-family: var(--font-head); font-weight: 600; color: var(--text); width: 20%; }
+.svc-table tbody tr:nth-child(even) { background: rgba(26, 60, 110, .25); }
+.svc-table-hint { color: var(--muted) !important; font-size: .9rem !important; margin-top: .6rem; display: none; }
+/* scope boundary and add-on panels */
+.svc-panel { border: 1px solid var(--line-soft); border-left: 4px solid var(--accent); border-radius: var(--radius); padding: clamp(1.4rem, 3vw, 2.4rem); max-width: 60rem; }
+.svc-panel h2 { margin-bottom: 1rem; }
+.svc-note { margin-top: 1.4rem; padding-top: 1.2rem; border-top: 1px solid var(--line-soft); font-size: .98rem !important; }
+.svc-addon { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: clamp(1.5rem, 5vw, 5rem); align-items: start; }
+.svc-addon .textlink { display: inline-block; margin-top: 1.4rem; }
+/* engagement steps across the page */
+.svc-steps { list-style: none; counter-reset: s; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 1.5rem; }
+.svc-steps li { counter-increment: s; padding-top: 1rem; border-top: 2px solid var(--accent); }
+.svc-steps li::before { content: counter(s); display: block; font: 700 1.6rem var(--font-head); color: var(--accent-hover); margin-bottom: .4rem; }
+.svc-steps strong { display: block; font-family: var(--font-head); font-size: 1.1rem; margin-bottom: .3rem; }
+.svc-cta { margin-top: 1.6rem; }
+.page-svc .faq h2 { font-size: clamp(1.7rem, 3vw, 2.6rem); }
+@media (max-width: 960px) {
+  .svc-split, .svc-cols, .svc-addon { grid-template-columns: minmax(0, 1fr); }
+  .svc-num { grid-template-columns: minmax(0, 1fr); }
+  .svc-steps { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 700px) {
+  .svc-table-hint { display: block; }
+}
+@media (max-width: 768px) {
+  .svc-hero { padding: calc(10vh + 40px) 16px 8vh; }
+  .svc-sec { padding: 9vh 16px; }
+  .svc-steps { grid-template-columns: minmax(0, 1fr); }
+}

@@ -89,7 +89,8 @@ if (form) {
   document.querySelectorAll("[data-service]").forEach((a) => a.addEventListener("click", () => {
     const pick = { sseg: ["SSEG commissioning", "Solar or battery system installed, awaiting sign-off"],
       energy: ["Energy loss audit", "High electricity bills, want to know why"],
-      assurance: ["Project assurance", "Pre-appointment"] }[a.dataset.service];
+      assurance: ["Project assurance", "Pre-appointment"],
+      pq: ["Power quality investigation", "In operation"] }[a.dataset.service];
     if (!pick) return;
     form.service.value = pick[0];
     form.stage.value = pick[1];

@@ -10,6 +10,7 @@ export default defineConfig({
       input: {
         home: page("index.html"),
         energy: page("energy-audit/index.html"),
+        pq: page("power-quality-investigation/index.html"),
         sseg: page("sseg-commissioning/index.html"),
         assurance: page("electrical-compliance-assurance/index.html"),
         blog: page("blog/index.html"),
