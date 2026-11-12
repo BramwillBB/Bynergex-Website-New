@@ -219,6 +219,45 @@
           <label class="field"><span>Email</span><input name="email" type="email" autocomplete="email" required /></label>
           <label class="field"><span>Company or site (optional)</span><input name="company" autocomplete="organization" /></label>
           <label class="field"><span>Phone (optional)</span><input name="phone" type="tel" autocomplete="tel" /></label>
+          <label class="field field--half">
+            <span>Site type (optional)</span>
+            <select name="site_type">
+              <option value="">Choose one</option>
+              <option>Office</option>
+              <option>Retail</option>
+              <option>Industrial or manufacturing</option>
+              <option>Warehouse or logistics</option>
+              <option>Hospitality</option>
+              <option>Healthcare</option>
+              <option>Education</option>
+              <option>Agricultural</option>
+              <option>Home</option>
+              <option>Other</option>
+            </select>
+          </label>
+          <label class="field field--half">
+            <span>Monthly electricity spend (optional)</span>
+            <select name="spend">
+              <option value="">Choose one</option>
+              <option>Under R20,000</option>
+              <option>R20,000 to R50,000</option>
+              <option>R50,000 to R150,000</option>
+              <option>R150,000 to R500,000</option>
+              <option>Over R500,000</option>
+              <option>Not sure</option>
+            </select>
+          </label>
+          <label class="field field--half">
+            <span>Supply points (optional)</span>
+            <select name="supply_points">
+              <option value="">Choose one</option>
+              <option>1</option>
+              <option>2 to 3</option>
+              <option>4 to 9</option>
+              <option>10 or more</option>
+              <option>Not sure</option>
+            </select>
+          </label>
           <div class="enquiry__send">
             <button class="btn" type="submit">Send enquiry <span aria-hidden="true">→</span></button>
             <p class="enquiry__hint">Goes straight to consultant@bynergex.com. We use your details only to reply to you (<a href="/privacy/">privacy policy</a>).</p>

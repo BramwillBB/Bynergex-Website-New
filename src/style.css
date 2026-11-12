@@ -688,3 +688,5 @@ body.video-failed .bg-video { display: none; }
 }
 .svc-sec a:not(.btn):not(.textlink), .page-svc .faq details a { color: var(--accent-hover); text-decoration: underline; text-underline-offset: 3px; }   /* links in text need more than colour */
 .footer__legal a, .enquiry__hint a, .contact__direct a { text-decoration: underline; text-underline-offset: 3px; }   /* links inside sentences need more than colour */
+.field.field--half { grid-column: auto; }   /* the optional site-detail dropdowns sit two to a row */
+@media (max-width: 600px) { .field.field--half { grid-column: 1 / -1; } }

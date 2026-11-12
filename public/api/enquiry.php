@@ -54,6 +54,9 @@ $name     = line('name', 120);
 $email    = line('email', 200);
 $company  = line('company', 160);
 $phone    = line('phone', 40);
+$siteType = line('site_type', 60);
+$spend    = line('spend', 60);
+$supplies = line('supply_points', 30);
 
 $missing = [];
 if ($decision === '') $missing[] = 'decision';
@@ -84,6 +87,9 @@ $body = implode("\n", array_filter([
     'Email: ' . $email,
     $company !== '' ? 'Company / site: ' . $company : null,
     $phone !== '' ? 'Phone: ' . $phone : null,
+    $siteType !== '' ? 'Site type: ' . $siteType : null,
+    $spend !== '' ? 'Monthly electricity spend: ' . $spend : null,
+    $supplies !== '' ? 'Supply points: ' . $supplies : null,
     '',
     'Sent from: ' . line('page', 200) . ' at ' . date('Y-m-d H:i T'),
     'Reply to this email to answer ' . $name . ' directly.',
